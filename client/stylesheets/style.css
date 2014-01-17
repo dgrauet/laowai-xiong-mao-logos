@@ -1,0 +1,31 @@
+.navbar { margin-bottom: 0px }
+
+.navbar-default {
+  background-color: #FEAE00;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+  
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-right:last-child {
+    margin-right: 0px;
+  }
+}
+
+.navbar-right .dropdown { margin-right: 10px }
+
+#login-buttons-logout { background-color: #FE373A }
+
+#spinner { height: 200px }
+
+.ticket {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px lightgrey;
+}
