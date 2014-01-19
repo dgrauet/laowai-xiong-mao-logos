@@ -5,10 +5,10 @@ Notifications.allow({
 });
 
 createCommentNotification = function(comment) {
-  var ticket = Ticketss.findOne(comment.ticketId);
+  var ticket = Tickets.findOne(comment.ticketId);
   if (comment.userId !== ticket.userId) {
     Notifications.insert({
-      userId: post.userId,
+      userId: ticket.userId,
       ticketId: ticket._id,
       commentId: comment._id,
       commenterName: comment.author,

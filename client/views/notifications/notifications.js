@@ -8,7 +8,7 @@ Template.notifications.helpers({
 });
 
 Template.notification.helpers({
-  notificationPostPath: function() {
+  notificationTicketPath: function() {
     return Router.routes.ticketPage.path({_id: this.ticketId});
   }
 })
