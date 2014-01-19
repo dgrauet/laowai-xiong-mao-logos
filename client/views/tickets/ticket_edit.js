@@ -2,7 +2,7 @@ Template.ticketEdit.events({
   'submit form': function(event) {
     event.preventDefault();
 
-    var currentPostId = this._id;
+    var currentTicketId = this._id;
 
     var ticketProperties = {
       url: $(event.target).find('[name=url]').val(),

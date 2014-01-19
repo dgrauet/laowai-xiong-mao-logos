@@ -56,7 +56,7 @@ if (Tickets.find().count() === 0) {
   });
   for (var i = 0; i < 10; i++) {
     Tickets.insert({
-      title: 'Test post #' + i,
+      title: 'Test ticket #' + i,
       author: sacha.profile.name,
       userId: sacha._id,
       url: 'http://google.com/?q=test-' + i,
