@@ -2,45 +2,84 @@
 if (Tickets.find().count() === 0) {
   var now = new Date().getTime();
 
+  Fields.insert({ name: 'Grand Public' });
+  Fields.insert({ name: 'Entreprise' });
+  Fields.insert({ name: 'Réquisition Légale' });
+  Fields.insert({ name: 'Facturation' });
+    
+  var groupWisp = Groups.insert({ tag: 'WISP', name: 'Experts WISP', emails: [ { email: 'stasd_adm_wisp@orange.com' } ] });
+  var groupApe = Groups.insert({ tag: 'APE', name: 'Experts APE', emails: [ { email: 'stasd_adm_ape@orange.com' } ] });
+  var groupRj = Groups.insert({ tag: 'RJ', name: 'Experts RJDM', emails: [ { email: 'stasd_adm_wisp@orange.com' } ] });
+  var groupCsg = Groups.insert({ tag: 'CSG', name: 'Experts CSG', emails: [ { email: 'stasd_adm_csg@orange.com' } ] });
+  var groupGaa = Groups.insert({ tag: 'GAA', name: 'Administrateurs Applicatifs', emails: [ { email: 'c3m_adm_gaa@list.orange.com' } ] });
+  
+  Categories.insert({ name: 'Sox', color: '#F5F4EA' });
+  Categories.insert({ name: 'Opération', color: '#E5F7E5' });
+  Categories.insert({ name: 'Incident', emails: '#F7E6C8' });
+  Categories.insert({ name: 'Check du matin', emails: '#EAF6F9' });
+  Categories.insert({ name: 'Check du soir', emails: '#E5F0F7' });
+  Categories.insert({ name: 'Astreinte', emails: '#F5E6F5' });
+  
   // create two users
-  var tomId = Meteor.users.insert({
-    profile: { name: 'Tom Coleman' }
+  var moussaId = Meteor.users.insert({
+    emails: [
+      { email: 'mmariko.ext@orange.com' }
+    ],
+    profile: { 
+      name: 'Moussa Mariko',
+      groupsId: [
+        { groupId: groupGaa }
+      ]
+    }
   });
-  var tom = Meteor.users.findOne(tomId);
-  var sachaId = Meteor.users.insert({
-    profile: { name: 'Sacha Greif' }
+  var moussa = Meteor.users.findOne(moussaId);
+  var maximeId = Meteor.users.insert({
+    emails: [
+      { email: 'mmariko.ext@orange.com' }
+    ],
+    profile: { 
+      name: 'Maxime Carron',
+      groupsId: [
+        { groupId: groupWisp },
+        { groupId: groupRj }
+      ] 
+    }
   });
-  var sacha = Meteor.users.findOne(sachaId);
-
+  var maxime = Meteor.users.findOne(maximeId);
+  
+  // Création d'un ticket avec 2 commentaires    
+    
   var telescopeId = Tickets.insert({
     title: 'Introducing Telescope',
-    userId: sacha._id,
-    author: sacha.profile.name,
+    userId: maxime._id,
+    author: maxime.profile.name,
     url: 'http://sachagreif.com/introducing-telescope/',
     submitted: now - 7 * 3600 * 1000,
     commentsCount: 2
-  });
+  });    
 
   Comments.insert({
     ticketId: telescopeId,
-    userId: tom._id,
-    author: tom.profile.name,
+    userId: moussa._id,
+    author: moussa.profile.name,
     submitted: now - 5 * 3600 * 1000,
     body: 'Interesting project Sacha, can I get involved?',
   });
 
   Comments.insert({
     ticketId: telescopeId,
-    userId: sacha._id,
-    author: sacha.profile.name,
+    userId: maxime._id,
+    author: maxime.profile.name,
     submitted: now - 3 * 3600 * 1000,
     body: 'You sure can Tom!'
   });
+    
+  //////////////////////////////////////////////////////////////
 
   Tickets.insert({
     title: 'Meteor',
-    userId: tom._id,
-    author: tom.profile.name,
+    userId: moussa._id,
+    author: moussa.profile.name,
     url: 'http://meteor.com',
     submitted: now - 10 * 3600 * 1000,
     commentsCount: 0
@@ -48,17 +87,18 @@ if (Tickets.find().count() === 0) {
 
   Tickets.insert({
     title: 'The Meteor Book',
-    userId: tom._id,
-    author: tom.profile.name,
+    userId: moussa._id,
+    author: moussa.profile.name,
     url: 'http://themeteorbook.com',
     submitted: now - 12 * 3600 * 1000,
     commentsCount: 0
   });
-  for (var i = 0; i < 10; i++) {
+    
+  for (var i = 0; i < 5; i++) {
     Tickets.insert({
       title: 'Test ticket #' + i,
-      author: sacha.profile.name,
-      userId: sacha._id,
+      author: maxime.profile.name,
+      userId: maxime._id,
       url: 'http://google.com/?q=test-' + i,
       submitted: now - i * 3600 * 1000,
       commentsCount: 0
