@@ -1,7 +1,7 @@
 .navbar { margin-bottom: 0px }
 
 .navbar-default {
-  background-color: #FE9D00;
+  background-color: #FE9000;
 }
 
 .navbar-default .navbar-brand {
@@ -9,6 +9,10 @@
 }
   
 .navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
   color: white;
 }
 
