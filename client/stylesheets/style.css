@@ -24,7 +24,14 @@
 
 .navbar-right .dropdown { margin-right: 10px }
 
-#login-buttons-logout { background-color: #FE373A }
+#login-buttons-password { background-color: #FE9000 }
+
+#login-buttons-logout { 
+  background-color: #FE373A;
+  border-color: white;
+}
+
+.jumbotron h1 { color: #505252 }
 
 #spinner { height: 200px }
 
