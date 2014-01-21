@@ -24,11 +24,29 @@
 
 .navbar-right .dropdown { margin-right: 10px }
 
-#login-buttons-password { background-color: #FE9000 }
+#login-buttons-password { 
+  background-color: #FE9000;
+  border-color: white;
+}
 
 #login-buttons-logout { 
   background-color: #FE373A;
   border-color: white;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #DEE5E4;
+    background-color: transparent;
+}
+
+.navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: white;
+  background-color: #DEE5E4;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+    background-color: #E38800;
 }
 
 .jumbotron h1 { color: #505252 }
