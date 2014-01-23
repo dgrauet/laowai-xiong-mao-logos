@@ -2,19 +2,14 @@
 if (Tickets.find().count() === 0) {
   var now = new Date().getTime();
     
-  // Fixtures Fields
-  Fields.insert({ name: 'Grand Public' });
-  Fields.insert({ name: 'Entreprise' });
-  Fields.insert({ name: 'Réquisition Légale' });
-  Fields.insert({ name: 'Facturation' });
-    
   // Fixtures Groups
-  var groupWisp = Groups.insert({ tag: 'WISP', name: 'Experts WISP', emails: [ { email: 'stasd_adm_wisp@orange.com' } ] });
-  var groupApe = Groups.insert({ tag: 'APE', name: 'Experts APE', emails: [ { email: 'stasd_adm_ape@orange.com' } ] });
-  var groupRj = Groups.insert({ tag: 'RJ', name: 'Experts RJDM', emails: [ { email: 'stasd_adm_wisp@orange.com' } ] });
-  var groupCsg = Groups.insert({ tag: 'CSG', name: 'Experts CSG', emails: [ { email: 'stasd_adm_csg@orange.com' } ] });
-  var groupGaa = Groups.insert({ tag: 'GAA', name: 'Administrateurs Applicatifs', emails: [ { email: 'c3m_adm_gaa@list.orange.com' } ] });
-  
+  var groupWisp = Groups.insert({ tag: 'WISP', name: 'Experts WISP', emails: [ 'stasd_adm_wisp@orange.com' ] });
+  var groupApe = Groups.insert({ tag: 'APE', name: 'Experts APE', emails: [ 'stasd_adm_ape@orange.com' ] });
+  var groupRj = Groups.insert({ tag: 'RJ', name: 'Experts RJDM', emails: [ 'dgrauet.ext@orange.com', 'maxime.carron@orange.com' ] });
+  var groupCsg = Groups.insert({ tag: 'CSG', name: 'Experts CSG', emails: [ 'stasd_adm_csg@orange.com' ] });
+  var groupGaa = Groups.insert({ tag: 'GAA', name: 'Administrateurs Applicatifs', emails: [ 'c3m_adm_gaa@list.orange.com' ] });
+  var groupPilote = Groups.insert({ tag: 'PIL', name: 'Pilotes de domaines', emails: [ 'lddes.pilotesdomaineaccesdatamobile@orange.com' ] });
+    
   // Fixtures Categories
   Categories.insert({ name: 'Sox', color: '#F5F4EA' });
   Categories.insert({ name: 'Opération', color: '#E5F7E5' });
@@ -23,6 +18,27 @@ if (Tickets.find().count() === 0) {
   Categories.insert({ name: 'Check du soir', emails: '#E5F0F7' });
   Categories.insert({ name: 'Astreinte', emails: '#F5E6F5' });
   
+  // Fixtures Fields
+  var fieldGp = Fields.insert({ name: 'Grand Public' });
+  var fieldApe = Fields.insert({ name: 'Entreprise' });
+  var fieldRj = Fields.insert({ name: 'Réquisition Légale' });
+  var fieldCsg = Fields.insert({ name: 'Facturation' });
+    
+  // Fixtures Platforms
+  var wispBagn = Platforms.insert({ tag: 'WISP2', name: 'Wireless Internet Service Provider - Bagnolet', fieldsId: fieldGp, groupsId: [ groupWisp, groupRj, groupGaa ] });
+  var wispMass = Platforms.insert({ tag: 'WISP3', name: 'Wireless Internet Service Provider - Masséna', fieldsId: fieldGp, groupsId: [ groupWisp, groupRj, groupGaa ] });
+  Platforms.insert({ tag: 'APE', name: 'Access Platform Entreprise Legacy - Aubervilliers', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
+  Platforms.insert({ tag: 'APE2', name: 'Access Platform Entreprise - Archives', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
+  Platforms.insert({ tag: 'APE4', name: 'Access Platform Entreprise - Aubervilliers', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
+  Platforms.insert({ tag: 'RJDM', name: 'Requisition Judiciaire Data Mobile', fieldsId: fieldRj, groupsId: [ groupRj, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFBOME', name: 'Pop de Bordeaux Meriadec', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFMASM', name: 'Pop de Marseille Saint-Mauront', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFSTWO', name: 'Pop de Strasbourg Woodly', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFPMAS', name: 'Pop de Paris Masséna', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFAUBE', name: 'Pop d\'Aubervilliers', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFLACA', name: 'Pop de Lacassagne', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  Platforms.insert({ tag: 'EPCFBLAN', name: 'Pop de Blanc-Mesnil', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+    
   // Fixtures Users
   var moussaId = Meteor.users.insert({
     emails: [
@@ -50,6 +66,15 @@ if (Tickets.find().count() === 0) {
   });
   var maxime = Meteor.users.findOne(maximeId);
   
+  // Fixtures Equipments
+  var rad = Equipments.insert({ tag: 'RAD', name: 'Radius', fieldsId: [ fieldGp, fieldApe, fieldRj ] });
+  var sgn = Equipments.insert({ tag: 'SGN', name: 'Session Engine', fieldsId: fieldGp });
+  Equipments.insert({ tag: 'PMR', name: 'Platform Manager', fieldsId: fieldGp });
+  Equipments.insert({ tag: 'CL', name: 'Collecteur local', fieldsId: fieldRj });
+  Equipments.insert({ tag: 'CC', name: 'Collecteur central', fieldsId: fieldRj });
+  Equipments.insert({ tag: 'SCM', name: 'Session Cache Manager', fieldsId: fieldApe });
+  var pgw = Equipments.insert({ tag: 'PGW', name: 'Platform Gateway', fieldsId: [ fieldGp, fieldApe, fieldCsg ] });    
+    
   // Création d'un ticket avec 2 commentaires    
     
   var telescopeId = Tickets.insert({

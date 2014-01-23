@@ -21,3 +21,11 @@ Meteor.publish('fields', function() {
 Meteor.publish('groups', function() {
   return Groups.find();
 });
+
+Meteor.publish('platforms', function() {
+  return Platforms.find();
+});
+
+Meteor.publish('equipments', function() {
+  return Equipments.find();
+});

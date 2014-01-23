@@ -1,0 +1,1 @@
+Platforms = new Meteor.Collection('platforms');
