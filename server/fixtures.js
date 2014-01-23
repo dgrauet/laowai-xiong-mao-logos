@@ -27,17 +27,16 @@ if (Tickets.find().count() === 0) {
   // Fixtures Platforms
   var wispBagn = Platforms.insert({ tag: 'WISP2', name: 'Wireless Internet Service Provider - Bagnolet', fieldsId: fieldGp, groupsId: [ groupWisp, groupRj, groupGaa ] });
   var wispMass = Platforms.insert({ tag: 'WISP3', name: 'Wireless Internet Service Provider - Masséna', fieldsId: fieldGp, groupsId: [ groupWisp, groupRj, groupGaa ] });
-  Platforms.insert({ tag: 'APE', name: 'Access Platform Entreprise Legacy - Aubervilliers', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
+  var apeAuber = Platforms.insert({ tag: 'APE', name: 'Access Platform Entreprise Legacy - Aubervilliers', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
   Platforms.insert({ tag: 'APE2', name: 'Access Platform Entreprise - Archives', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
   Platforms.insert({ tag: 'APE4', name: 'Access Platform Entreprise - Aubervilliers', fieldsId: fieldApe, groupsId: [ groupApe, groupRj, groupGaa ] });
-  Platforms.insert({ tag: 'RJDM', name: 'Requisition Judiciaire Data Mobile', fieldsId: fieldRj, groupsId: [ groupRj, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFBOME', name: 'Pop de Bordeaux Meriadec', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFMASM', name: 'Pop de Marseille Saint-Mauront', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFSTWO', name: 'Pop de Strasbourg Woodly', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFPMAS', name: 'Pop de Paris Masséna', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFAUBE', name: 'Pop d\'Aubervilliers', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFLACA', name: 'Pop de Lacassagne', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
-  Platforms.insert({ tag: 'EPCFBLAN', name: 'Pop de Blanc-Mesnil', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFBOME', name: 'Pop de Bordeaux Meriadec', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFMASM', name: 'Pop de Marseille Saint-Mauront', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFSTWO', name: 'Pop de Strasbourg Woodly', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFPMAS', name: 'Pop de Paris Masséna', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFAUBE', name: 'Pop d\'Aubervilliers', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFLACA', name: 'Pop de Lacassagne', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
+  var epcfBome = Platforms.insert({ tag: 'EPCFBLAN', name: 'Pop de Blanc-Mesnil', fieldsId: [ fieldGp, FieldApe, FieldRj, FieldCsg ], groupsId: [ groupWisp, groupRj, groupApe, groupCsg, groupGaa ] });
     
   // Fixtures Users
   var moussaId = Meteor.users.insert({
@@ -67,13 +66,13 @@ if (Tickets.find().count() === 0) {
   var maxime = Meteor.users.findOne(maximeId);
   
   // Fixtures Equipments
-  var rad = Equipments.insert({ tag: 'RAD', name: 'Radius', fieldsId: [ fieldGp, fieldApe, fieldRj ] });
-  var sgn = Equipments.insert({ tag: 'SGN', name: 'Session Engine', fieldsId: fieldGp });
-  Equipments.insert({ tag: 'PMR', name: 'Platform Manager', fieldsId: fieldGp });
-  Equipments.insert({ tag: 'CL', name: 'Collecteur local', fieldsId: fieldRj });
-  Equipments.insert({ tag: 'CC', name: 'Collecteur central', fieldsId: fieldRj });
-  Equipments.insert({ tag: 'SCM', name: 'Session Cache Manager', fieldsId: fieldApe });
-  var pgw = Equipments.insert({ tag: 'PGW', name: 'Platform Gateway', fieldsId: [ fieldGp, fieldApe, fieldCsg ] });    
+  var rad = Equipments.insert({ tag: 'RAD', name: 'Radius', platformsId: [ wispBagn, wispMass, fieldRj, apeAuber ] });
+  var sgn = Equipments.insert({ tag: 'SGN', name: 'Session Engine', platformsId: [ wispBagn, wispMass ] });
+  Equipments.insert({ tag: 'PMR', name: 'Platform Manager', platformsId: [ wispBagn, wispMass ] });
+  Equipments.insert({ tag: 'CL', name: 'Collecteur local', platformsId: [ rjPop ] });
+  Equipments.insert({ tag: 'CC', name: 'Collecteur central', platformsId: fieldRj });
+  Equipments.insert({ tag: 'SCM', name: 'Session Cache Manager', platformsId: fieldApe });
+  var pgw = Equipments.insert({ tag: 'PGW', name: 'Platform Gateway', platformsId: [ fieldGp, fieldApe, fieldCsg ] });    
     
   // Création d'un ticket avec 2 commentaires    
     
