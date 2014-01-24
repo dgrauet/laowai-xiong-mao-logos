@@ -1,7 +1,7 @@
 .navbar { margin-bottom: 0px }
 
 .navbar-default {
-  background-color: #FE9000;
+  background-color: #ED7F10;
 }
 
 .navbar-default .navbar-brand {
@@ -25,7 +25,7 @@
 .navbar-right .dropdown { margin-right: 10px }
 
 #login-buttons-password { 
-  background-color: #FE9000;
+  background-color: #ED7F10;
   border-color: white;
 }
 
