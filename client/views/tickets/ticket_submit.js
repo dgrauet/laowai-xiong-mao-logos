@@ -1,4 +1,12 @@
 Template.ticketSubmit.events({
+  'submit #btnRef': function(event){
+    event.preventdefault();
+    numRef = $(event.target).find('[name=references]').val();
+    if (numRef ==! undefined)
+      console.log(numRef);
+    return 
+  },
+  
   'submit form': function(event) {
     event.preventDefault();
     var ticket = {
