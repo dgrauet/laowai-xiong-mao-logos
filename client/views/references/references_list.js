@@ -4,7 +4,7 @@ Template.references.helpers({
   }
 });
 
-Template.error.submitted = function() {
+Template.reference.submitted = function() {
   var reference = this.data;
   Meteor.defer(function() {
     References.update(reference._id, {$set: {submitted: true}});
