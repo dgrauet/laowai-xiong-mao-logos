@@ -1,0 +1,15 @@
+<template name="references">
+  <ul class="references list-inline row-fluid">
+    {{#each references}}
+      {{> reference}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="reference">
+  <li>
+    {{reference}}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{message}}
+  </li>
+</template>
