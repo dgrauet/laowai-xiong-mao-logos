@@ -58,3 +58,9 @@
     margin-bottom: 10px;
     border-bottom: solid 1px lightgrey;
 }
+
+span.label > .close {
+    float: none;
+    text-shadow: none;
+    font-size: 13px;
+}
