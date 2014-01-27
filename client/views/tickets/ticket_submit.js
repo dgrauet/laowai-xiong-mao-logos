@@ -1,20 +1,19 @@
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
+    var references = _.without(References.find().fetch(), '_id');
+    
     var ticket = {
-      url: $(event.target).find('[name=url]').val(),
+      references: references,
       title: $(event.target).find('[name=title]').val(),
-      message: $(event.target).find('[name=message]').val()
+      detail: $(event.target).find('[name=detail]').val()
     }
 
     Meteor.call('ticket', ticket, function(error, id) {
       if (error) {
         // display the error to the user
         throwError(error.reason);
-        if (error.error === 302)
-          Router.go('ticketPage', {_id: error.details})
-        } else {
-          Router.go('ticketPage', {_id: id});
+        Router.go('ticketPage', {_id: id});
       }
     });
     Router.go('ticketsList');
