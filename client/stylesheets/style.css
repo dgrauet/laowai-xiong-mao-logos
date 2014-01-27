@@ -2,6 +2,7 @@
 
 .navbar-default {
   background-color: #ED7F10;
+  border: none;
 }
 
 .navbar-default .navbar-brand {
@@ -26,12 +27,12 @@
 
 #login-buttons-password { 
   background-color: #ED7F10;
-  border-color: white;
+  border: none;
 }
 
 #login-buttons-logout { 
   background-color: #FE373A;
-  border-color: white;
+  border: none;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
