@@ -9,9 +9,6 @@ Template.reference.events({
     $('#btnClose').on('click', function(){
       event.preventdefault;
       $(this).parent('li').remove();
-    
-    
     });
-    
   }
 });
