@@ -1,17 +1,13 @@
 Template.references.helpers({
   references: function() {
-    return References.find({ submitted: false });
+    return References.find();
   }
 });
 
 Template.reference.events({
   'click #btnClose': function(event) {
-    $('#btnClose').on('click', function(){
       event.preventdefault;
-      $(this).parent('li').remove();
-    
-    
-    });
-    
+      var id = this._id;
+      References.remove({ _id: id });
   }
 });
