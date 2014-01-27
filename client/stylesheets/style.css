@@ -59,7 +59,11 @@
     border-bottom: solid 1px lightgrey;
 }
 
-span.label > .close {
+span.label {
+  padding: 3px;
+}
+
+span.label .close {
     float: none;
     text-shadow: none;
     font-size: 13px;
