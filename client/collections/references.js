@@ -32,7 +32,6 @@ Meteor.methods({
 
     var referenceId = References.insert({
       number: reference.number,
-      submitted: false
     });
     return referenceId;
   }
