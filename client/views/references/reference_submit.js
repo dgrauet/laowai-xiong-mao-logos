@@ -1,14 +1,15 @@
 Template.referenceSubmit.events({
     'click #btnRef': function(event){
-        event.preventdefault();
+        event.preventdefault;
         var reference = {
-            reference: $(event.target).find('[name=references]').val(),
-        }
+            number: $('#refInput').val()
+        };
 
-        Meteor.call('reference', reference, function(error, id) {
+        Meteor.call('reference', reference, function(error) {
             if (error) {
-                // display the error to the user
                 throwError(error.reason);
+            } else {
+                $('#refInput').val('');
             }
         });
     }
