@@ -84,14 +84,14 @@ if (Tickets.find().count() === 0) {
   });
   var hocine = Meteor.users.findOne(hocineId);
   
-  var maximeId = Meteor.users.insert({
-    emails: [ 'maxime.carron@orange.com' ],
+  var damienId = Meteor.users.insert({
+    emails: [ 'dgrauet.ext@orange.com' ],
     profile: { 
-      name: 'Maxime Carron',
+      name: 'Damien Grauet',
       groups: [ 'WISP', 'RJ' ] 
     }
   });
-  var maxime = Meteor.users.findOne(maximeId);
+  var damien = Meteor.users.findOne(damienId);
   
   // Fixtures Equipments
   Equipments.insert({ tag: 'RAD', name: 'Radius', platforms: [ 'WISP2', 'WISP3', 'APE', 'APE2', 'APE4' ] });
@@ -191,8 +191,8 @@ if (Tickets.find().count() === 0) {
   for (var i = 0; i < 5; i++) {
     Tickets.insert({
       title: 'Test ticket #' + i,
-      author: maxime.profile.name,
-      userId: maxime._id,
+      author: damien.profile.name,
+      userId: damien._id,
       submitted: now - i * 3600 * 1000,
       commentsCount: 0
     });
