@@ -4,11 +4,9 @@ Template.references.helpers({
   }
 });
 
-Template.reference.events({
-  'click #btnClose': function(event) {
-    $('#btnClose').on('click', function(){
-      event.preventdefault;
-      $(this).parent('li').remove();
-    });
-  }
-});
+Template.reference.submitted = function() {
+  var reference = this.data;
+  Meteor.defer(function() {
+    References.update(reference._id, {$set: {submitted: true}});
+  });
+};
