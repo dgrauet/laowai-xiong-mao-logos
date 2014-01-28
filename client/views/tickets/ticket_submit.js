@@ -1,7 +1,7 @@
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
-    var references = _.without(References.find().fetch(), '_id');
+    var references = References.find().fetch();
     
     var ticket = {
       references: references,
@@ -14,6 +14,8 @@ Template.ticketSubmit.events({
         // display the error to the user
         throwError(error.reason);
         Router.go('ticketPage', {_id: id});
+      }else{
+        References.remove({});
       }
     });
     Router.go('ticketsList');
