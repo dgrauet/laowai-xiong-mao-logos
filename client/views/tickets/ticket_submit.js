@@ -13,11 +13,11 @@ Template.ticketSubmit.events({
       if (error) {
         // display the error to the user
         throwError(error.reason);
-        Router.go('ticketPage', {_id: id});
+        Router.go('ticketsList');
       }else{
         References.remove({});
+        Router.go('ticketPage', {_id: id});
       }
     });
-    Router.go('ticketsList');
   }
 });
