@@ -1,25 +1,33 @@
 <template name="ticketItem">
     <div class="ticket">
-      <div class="ticket-content">
-        <div class="col-sm-1">
-            {{number}}
+        <div class="ticket-content">
+            <div class="row">
+                <div class="col-md-1 text-center">
+                    <span>{{number}}</span>
+                    {{#if references}}
+                        {{#each references}}
+                            <span class="label label-warning">{{this}}</span>
+                        {{/each}}
+                    {{/if}}
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <h5>{{title}}</h5>
+                        <p>
+                            submitted by {{author}},
+                            {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <span class="glyphicon glyphicon-comment">
+                                <a href="{{pathFor 'ticketPage'}}" class="">{{commentsCount}}</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
-        <div class="col-sm-1">
-            {{#if references}}
-                {{#each references}}
-                    <label class="label label-warning">{{this}}</label>
-                {{/each}}
-            {{/if}}
-        </div>
-        <div class="col-sm-10">
-          
-        </div>
-        <h5>{{title}}</h5>
-        <p>
-          submitted by {{author}},
-          <a href="{{pathFor 'ticketPage'}}">{{commentsCount}} comments</a>
-          {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
-        </p>
-      </div>
     </div>
 </template>
