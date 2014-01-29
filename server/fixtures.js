@@ -152,7 +152,7 @@ if (Tickets.find().count() === 0) {
     updated: now - 10 * 3600 * 1000,
     commentsCount: 0,
     category: 'Astreinte',
-    participants: 'Hocine Mansouri',
+    participants: [ 'Hocine Mansouri' ],
     fields: 'Réquisition Légale',
     platforms: 'AUBE',
     equipments: 'CL',
@@ -194,8 +194,9 @@ if (Tickets.find().count() === 0) {
       author: damien.profile.name,
       userId: damien._id,
       submitted: now - i * 3600 * 1000,
-      commentsCount: 0
+      participants: [ 'Damien Grauet' ],
+      commentsCount: 0,
+      participantsCount: 1
     });
   }
 }
-
