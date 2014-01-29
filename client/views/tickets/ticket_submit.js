@@ -1,8 +1,12 @@
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
-    var references = References.find().fetch();
-    
+    var refList = References.find().fetch();
+    var references = [];
+    console.log(references);
+    for(i=0 ; i<refList.length ; i++){
+      references[i] = refList[i].number;
+    }
     var ticket = {
       references: references,
       title: $(event.target).find('[name=title]').val(),

@@ -147,7 +147,7 @@ if (Tickets.find().count() === 0) {
     userId: hocine._id,
     author: hocine.profile.name,
     number: '14-022-006',
-    references: '1401844060',
+    references: [ '1401844060' ],
     submitted: now - 10 * 3600 * 1000,
     updated: now - 10 * 3600 * 1000,
     commentsCount: 0,
