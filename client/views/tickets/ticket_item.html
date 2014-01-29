@@ -20,9 +20,27 @@
                     </div>
                     <div class="row">
                         <div class="col-md-10">
-                            <span class="glyphicon glyphicon-comment">
-                                <a href="{{pathFor 'ticketPage'}}" class="">{{commentsCount}}</a>
-                            </span>
+                            <ol class="breadcrumb ">
+                                <li>
+                                    <span class="orange">
+                                        <a href="" id="participants" class="count" data-toggle="tooltip">{{participantsCount}}</a>
+                                    </span>
+                                    <div class="tooltip">
+                                        <div class="tooltip-top">
+                                            {{#each participants}}
+                                                {{this}}
+                                            {{/each}}
+                                        </div>
+                                        <div class="tooltip-arrow"></div>
+                                   </div>
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </li>
+                                <li>
+                                    <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
+                                    <span class="glyphicon glyphicon-comment"></span>
+                                </li>
+                            </ol>
+
                         </div>
                     </div>
                 </div>

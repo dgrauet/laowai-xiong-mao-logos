@@ -73,3 +73,17 @@ span.label .close {
     text-shadow: none;
     font-size: 13px;
 }
+
+a.count{
+    text-decoration:none;
+    color:orange;
+}
+
+.breadcrumb a:hover{
+    text-decoration:none;
+    color: orange;
+}
+
+.orange{
+    color: rgb(237, 127, 16);
+}
