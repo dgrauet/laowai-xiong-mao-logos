@@ -113,7 +113,7 @@ if (Tickets.find().count() === 0) {
     category: 'Check du matin',
     participants: [ 'Moussa Mariko', 'Hocine Mansouri' ],
     commentsCount: 3,
-    particpantsCount: 2
+    participantsCount: 2
   });    
 
   Comments.insert({

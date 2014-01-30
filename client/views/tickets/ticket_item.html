@@ -23,16 +23,10 @@
                             <ol class="breadcrumb ">
                                 <li>
                                     <span class="orange">
-                                        <a href="" id="participants" class="count" data-toggle="tooltip">{{participantsCount}}</a>
+                                        <a href="#" id="participants" class="count" data-toggle="tooltip" data-placement="top" title="{{participantsList}}">
+                                            {{participantsCount}}
+                                        </a>
                                     </span>
-                                    <div class="tooltip">
-                                        <div class="tooltip-top">
-                                            {{#each participants}}
-                                                {{this}}
-                                            {{/each}}
-                                        </div>
-                                        <div class="tooltip-arrow"></div>
-                                   </div>
                                     <span class="glyphicon glyphicon-user"></span>
                                 </li>
                                 <li>
