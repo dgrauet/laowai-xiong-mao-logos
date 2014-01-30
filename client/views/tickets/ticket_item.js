@@ -11,8 +11,6 @@ Template.ticketItem.helpers({
             liste = liste + ", ";   
         }
       }
-      
-      console.log(liste);
       return liste;
   }
 });
