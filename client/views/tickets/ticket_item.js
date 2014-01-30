@@ -1,13 +1,18 @@
 Template.ticketItem.helpers({
   ownTicket: function() {
     return this.userId == Meteor.userId();
-  }
-});
-
-Template.ticketItem.events({
-  'click #participants': function(event) {
-      event.preventdefault;
-      $('#participants').tooltip('show');
-
+  },
+  participantsList: function() {
+      var participantsArr = this.participants;
+      var liste = "";
+      for(i=0;i<participantsArr.length;i++){
+        liste = liste + participantsArr[i];
+        if(i!==(participantsArr.length - 1)){
+            liste = liste + ", ";   
+        }
+      }
+      
+      console.log(liste);
+      return liste;
   }
 });
