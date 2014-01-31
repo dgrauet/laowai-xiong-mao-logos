@@ -1,47 +1,51 @@
 <template name="ticketItem">
-    <div class="ticket">
-        <div class="ticket-content">
-            <div class="row">
-                <div class="col-md-1 text-center">
-                    <span>{{number}}</span>
-                    {{#if references}}
-                        {{#each references}}
-                            <span class="label label-warning">{{this}}</span>
-                        {{/each}}
-                    {{/if}}
-                </div>
-                <div class="col-md-10">
-                    <div class="row">
-                        <h5>{{title}}</h5>
-                        <p>
-                            submitted by {{author}},
-                            {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
-                        </p>
+    <div class="wrapper">
+        <div class="ribbon-wrapper">
+            <div class="ribbon ribbon-{{color}}">{{category}}</div>
+        </div>
+        <div class="ticket">
+            <div class="ticket-content">
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <p>{{number}}</p>
+                        {{#if references}}
+                            {{#each references}}
+                                <span class="label label-warning">{{this}}</span>
+                            {{/each}}
+                        {{/if}}
                     </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <ol class="breadcrumb ">
-                                <li>
-                                    <span class="orange">
-                                        <a href="#" id="participants" class="count" title="{{participantsList}}">
-                                            {{participantsCount}}
-                                        </a>
-                                        <div class="tooltip top">
-                                            <div class="tooltip-inner"></div>
-                                            <div class="tooltip-arrow"></div>
-                                        </div>
-                                    </span>
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </li>
-                                <li>
-                                    <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
-                                    <span class="glyphicon glyphicon-comment"></span>
-                                </li>
-                            </ol>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <h5>{{title}}</h5>
+                            <p>
+                                submitted by {{author}},
+                                {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ol class="breadcrumb ">
+                                    <li>
+                                        <span class="orange">
+                                            <a href="#" id="participants" class="count" title="{{participantsList}}">
+                                                {{participantsCount}}
+                                            </a>
+                                            <div class="tooltip top">
+                                                <div class="tooltip-inner"></div>
+                                                <div class="tooltip-arrow"></div>
+                                            </div>
+                                        </span>
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </li>
+                                    <li>
+                                        <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
+                                        <span class="glyphicon glyphicon-comment"></span>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

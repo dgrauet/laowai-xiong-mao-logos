@@ -11,12 +11,12 @@ if (Tickets.find().count() === 0) {
   Groups.insert({ tag: 'PIL', name: 'Pilotes de domaines', emails: [ 'lddes.pilotesdomaineaccesdatamobile@orange.com' ] });
     
   // Fixtures Categories
-  Categories.insert({ name: 'Sox', color: '#F5F4EA' });
-  Categories.insert({ name: 'Opération', color: '#E5F7E5' });
-  Categories.insert({ name: 'Incident', emails: '#F7E6C8' });
-  Categories.insert({ name: 'Check du matin', emails: '#EAF6F9' });
-  Categories.insert({ name: 'Check du soir', emails: '#E5F0F7' });
-  Categories.insert({ name: 'Astreinte', emails: '#F5E6F5' });
+  Categories.insert({ name: 'Sox', color: 'yellow' });
+  Categories.insert({ name: 'Opération', color: 'green' });
+  Categories.insert({ name: 'Incident', color: 'orange' });
+  Categories.insert({ name: 'Check du matin', color: 'blue' });
+  Categories.insert({ name: 'Check du soir', color: 'blue' });
+  Categories.insert({ name: 'Astreinte', color: 'pink' });
   
   // Fixtures Fields
   Fields.insert({ name: 'Grand Public' });
@@ -108,9 +108,11 @@ if (Tickets.find().count() === 0) {
     userId: moussa._id,
     author: moussa.profile.name,
     number: '14-023-002',
+    references: [ '1401844062', '1401844063', '1401844064', '1401844066' ],
     submitted: now - 7 * 3600 * 1000,
     updated: now - 7 * 3600 * 1000,
     category: 'Check du matin',
+    color: 'blue',
     participants: [ 'Moussa Mariko', 'Hocine Mansouri' ],
     commentsCount: 3,
     participantsCount: 2
@@ -147,11 +149,12 @@ if (Tickets.find().count() === 0) {
     userId: hocine._id,
     author: hocine.profile.name,
     number: '14-022-006',
-    references: [ '1401844060' ],
+    references: [ '1401844060', '1401844061' ],
     submitted: now - 10 * 3600 * 1000,
     updated: now - 10 * 3600 * 1000,
     commentsCount: 0,
     category: 'Astreinte',
+    color: 'pink',
     participants: [ 'Hocine Mansouri' ],
     fields: 'Réquisition Légale',
     platforms: 'AUBE',
@@ -196,6 +199,8 @@ if (Tickets.find().count() === 0) {
       submitted: now - i * 3600 * 1000,
       participants: [ 'Damien Grauet' ],
       commentsCount: 0,
+      category: 'Astreinte',
+      color: 'pink',
       participantsCount: 1
     });
   }

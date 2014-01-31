@@ -59,8 +59,7 @@ h3 {
 #spinner { height: 200px }
 
 .ticket {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 5px;
     border-bottom: solid 1px lightgrey;
 }
 
@@ -79,6 +78,10 @@ a.count{
     color:orange;
 }
 
+.breadcrumb {
+    margin-bottom: 0px;
+}
+
 .breadcrumb a:hover{
     text-decoration:none;
     color: orange;
@@ -86,4 +89,55 @@ a.count{
 
 .orange{
     color: rgb(237, 127, 16);
+}
+
+.wrapper {
+  position: relative;
+  z-index: 90;
+  overflow:hidden;
+}
+
+.ribbon-wrapper {
+  width: 200px;
+  height: 62px;
+  position: absolute;
+  right: -40px;
+  bottom: 10px;
+  z-index:90;
+}
+
+.ribbon {  
+  font: bold 15px Sans-Serif;
+  color: #fff;
+  text-align: center;
+  letter-spacing:1px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform:    rotate(-45deg);
+  -ms-transform:     rotate(-45deg);
+  -o-transform:      rotate(-45deg);
+  position: relative;
+  padding: 7px 0;
+  
+  color: #fff;
+      overflow:hidden;
+}
+
+.ribbon-blue {
+  background: rgb(167,207,223);
+}
+
+.ribbon-pink {
+  background: rgb(255,192,203);
+}
+
+.ribbon-red {
+  background: rgb(255,0,0);
+}
+
+.ribbon-orange {
+  background: rgb(255,165,0);
+}
+
+.ribbon-green {
+  background: rgb(0,128,0);
 }
