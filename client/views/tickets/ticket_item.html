@@ -10,7 +10,7 @@
                         <p class="number">{{number}}</p>
                         {{#if references}}
                             {{#each references}}
-                                <span class="label label-warning">{{this}}</span>
+                                <span class="label label-danger">{{this}}</span>
                             {{/each}}
                         {{/if}}
                     </div>
@@ -23,8 +23,8 @@
                             </p>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
-                                <ol class="breadcrumb ">
+                            <div class="col-md-4">
+                                <ol class="breadcrumb">
                                     <li>
                                         <span class="orange">
                                             <a href="#" id="participants" class="count" title="{{participantsList}}">
@@ -41,6 +41,18 @@
                                         <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
                                         <span class="glyphicon glyphicon-comment"></span>
                                     </li>
+                                    <li>
+                                        <span class="glyphicon glyphicon-share-alt"></span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </li>
+                                    {{#if attachmentsId}}
+                                    <li>
+                                        <a href="" class="count">{{attachmentsCount}}</a>
+                                        <span class="glyphicon glyphicon-paperclip"></span>
+                                    </li>
+                                    {{/if}}
                                 </ol>
                             </div>
                         </div>
