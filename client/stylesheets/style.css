@@ -86,6 +86,7 @@ a.count{
 
 .breadcrumb {
     margin-bottom: 0px;
+    background-color: rgb(228,228,228);
 }
 
 .breadcrumb a:hover{
@@ -129,11 +130,11 @@ a.count{
 }
 
 .ribbon-blue {
-  background: rgb(167,207,223);
+  background: rgb(49,118,183);
 }
 
 .ribbon-pink {
-  background: rgb(255,192,203);
+  background: rgb(218,61,173);
 }
 
 .ribbon-red {
