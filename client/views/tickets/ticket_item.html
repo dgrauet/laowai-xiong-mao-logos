@@ -6,34 +6,37 @@
         <div class="ticket">
             <div class="ticket-content">
                 <!-- Number / Tags -->
-                <div class="row no-margin">
-                    <div class="col-md-2 col-lg-2 text-center no-padding">
+                <div class="row no-margin border-left-orange">
+                    <div class="col-md-1 col-lg-1 text-center no-padding">
                         <p class="number"><a href="{{pathFor 'ticketPage'}}">{{number}}</a></p>
-                        <div>
+                        <div class="tags">
                             {{#if references}}
-                                {{#each references}}
-                                    <span class="label label-danger no-border-radius">{{this}}</span>
-                                {{/each}}
+                                <div>
+                                    {{#each references}}
+                                        <span class="label label-danger no-border-radius">{{this}}</span>
+                                    {{/each}}
+                                </div>
                             {{/if}}
-                        </div>
-                        <div>
                             {{#if fields}}
-                                {{#each fields}}
-                                    <span class="label label-info no-border-radius">{{this}}</span>
-                                {{/each}}
+                                <div>
+                                    {{#each fields}}
+                                        <span class="label label-info no-border-radius">{{this}}</span>
+                                    {{/each}}
+                                </div>
                             {{/if}}
-                        </div>
-                        <div>
-                            {{#if platforms}}
-                                {{#each platforms}}
-                                    <span class="label label-success no-border-radius">{{this}}</span>
-                                {{/each}}
-                            {{/if}}
-                            {{#if equipments}}
-                                {{#each equipments}}
-                                    <span class="label label-primary no-border-radius">{{this}}</span>
-                                {{/each}}
-                            {{/if}}
+                            <div>
+                                {{#if platforms}}
+                                    {{#each platforms}}
+                                        <span class="label label-success no-border-radius">{{this}}</span>
+                                    {{/each}}
+                                {{/if}}
+                                {{#if equipments}}
+                                    {{#each equipments}}
+                                        <span class="label label-primary no-border-radius">{{this}}</span>
+                                    {{/each}}
+                                    
+                                {{/if}}
+                            </div>
                         </div>
                     </div>
                     <!-- Title / Detail -->
@@ -46,7 +49,7 @@
                                     {{/if}}
                                     {{#if detail}}
                                         <small>
-                                            {{detailCustom}}
+                                            {{detail}}
                                         </small>
                                     {{/if}}
                                 </blockquote>
@@ -85,6 +88,13 @@
                                         <span class="glyphicon glyphicon-paperclip"></span>
                                     </li>
                                     {{/if}}
+                                    <li>
+                                        {{#if isToday}}
+                                            {{submittedTextToday}} -> {{updatedTextToday}}
+                                        {{else}}
+                                            {{submittedText}} -> {{updatedText}}
+                                        {{/if}}
+                                    </li>
                                 </ol>
                             </div>
                         </div>
