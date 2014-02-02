@@ -145,7 +145,7 @@ if (Tickets.find().count() === 0) {
   // Fixtures Tickets
   var astreinteId = Tickets.insert({
     title: 'Alarme RJ',
-    detail: 'Espace insuffisant sur epcfaubeud04', 
+    detail: 'Espace insuffisant sur epcfaubeud04 parce que je veux faire un texte super long pour voir ce que ça donne avec le nouveau design de moche trollolol', 
     userId: hocine._id,
     author: hocine.profile.name,
     number: '14-022-006',
@@ -156,9 +156,9 @@ if (Tickets.find().count() === 0) {
     category: 'Astreinte',
     color: 'pink',
     participants: [ 'Hocine Mansouri' ],
-    fields: 'Réquisition Légale',
-    platforms: 'AUBE',
-    equipments: 'CL',
+    fields: [ 'Réquisition Légale' ],
+    platforms: [ 'AUBE' ],
+    equipments: [ 'CL' ],
     attachmentsId: [ '1', '2' ],
     commentsCount: 3,
     participantsCount: 1,
