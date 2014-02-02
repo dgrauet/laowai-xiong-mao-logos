@@ -61,6 +61,17 @@ h3 {
 .ticket {
     padding: 5px;
     border-bottom: solid 1px lightgrey;
+    padding: 0px;
+}
+
+.ticket-content {
+
+}
+
+blockquote {
+    padding: 15px 20px;
+    border-left: solid 4px rgb(245,245,245);
+    height: 80px;
 }
 
 p.number {
@@ -86,12 +97,18 @@ a.count{
 
 .breadcrumb {
     margin-bottom: 0px;
-    background-color: rgb(228,228,228);
+    border-radius: 0px;
 }
 
 .breadcrumb a:hover{
     text-decoration:none;
     color: orange;
+}
+
+.border-radius-top-right {
+    -webkit-border-top-right-radius: 30px;
+    -moz-border-radius-topright: 30px;
+    border-top-right-radius: 30px;
 }
 
 .orange{
@@ -147,4 +164,20 @@ a.count{
 
 .ribbon-green {
   background: rgb(0,128,0);
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-padding-left {
+    padding-left: 0px;
+}
+
+.no-padding-right {
+    padding-right: 0px;
+}
+
+.no-margin {
+    margin: 0px;
 }

@@ -5,26 +5,47 @@
         </div>
         <div class="ticket">
             <div class="ticket-content">
-                <div class="row">
-                    <div class="col-md-2 text-center">
+                <div class="row no-margin">
+                    <div class="col-md-2 col-lg-2 text-center no-padding">
                         <p class="number">{{number}}</p>
                         {{#if references}}
                             {{#each references}}
                                 <span class="label label-danger">{{this}}</span>
                             {{/each}}
                         {{/if}}
+                        {{#if fields}}
+                            {{#each fields}}
+                                <span class="label label-info">{{this}}</span>
+                            {{/each}}
+                        {{/if}}
+                        {{#if platforms}}
+                            {{#each platforms}}
+                                <span class="label label-success">{{this}}</span>
+                            {{/each}}
+                        {{/if}}
+                        {{#if equipments}}
+                            {{#each equipments}}
+                                <span class="label label-primary">{{this}}</span>
+                            {{/each}}
+                        {{/if}}
                     </div>
-                    <div class="col-md-10">
-                        <div class="row">
-                            <h5>{{title}}</h5>
-                            <p>
-                                submitted by {{author}},
-                                {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
-                            </p>
+                    <div class="col-md-10 no-padding">
+                        <div class="row no-margin">
+                            <blockquote class="no-margin">  
+                                {{#if title}}
+                                    <p>{{title}}</p>
+                                {{/if}}
+                                {{#if detail}}
+                                    <small>
+                                        {{detail}}
+                                    </small>
+                                {{/if}}
+                            </blockquote>
+                            {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <ol class="breadcrumb">
+                        <div class="row no-margin">
+                            <div class="col-md-4 no-padding">
+                                <ol class="breadcrumb border-radius-top-right">
                                     <li>
                                         <span class="orange">
                                             <a href="#" id="participants" class="count" title="{{participantsList}}">
