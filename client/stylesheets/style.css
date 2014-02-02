@@ -70,8 +70,8 @@ h3 {
 
 blockquote {
     padding: 15px 20px;
-    border-left: solid 4px rgb(237, 127, 16);
-    height: 80px;
+    
+    min-height: 80px;
 }
 
 p.number {
@@ -83,6 +83,11 @@ p.number a{
     color: white;
     margin: 0px;
     text-decoration: none;
+}
+
+.tags {
+    padding-left : 5px;
+    padding-right : 5px;
 }
 
 span.label {
@@ -104,7 +109,7 @@ a.count{
     margin-bottom: 0px;
     border-radius: 0px;
     border-top: solid 1px lightgrey;
-    border-left: solid 4px rgb(237, 127, 16);
+    
 }
 
 .breadcrumb a:hover{
@@ -200,4 +205,8 @@ a.count{
 
 .no-margin {
     margin: 0px;
+}
+
+.border-left-orange {
+    border-left: solid 4px rgb(237, 127, 16);
 }
