@@ -145,7 +145,7 @@ if (Tickets.find().count() === 0) {
   // Fixtures Tickets
   var astreinteId = Tickets.insert({
     title: 'Alarme RJ',
-    detail: 'Espace insuffisant sur epcfaubeud04 parce que je veux faire un texte super long pour voir ce que ça donne avec le nouveau design de moche trollolol', 
+    detail: 'Espace insuffisant sur epcfaubeud04 parce que je veux faire un texte super long pour voir ce que ça donne avec le nouveau design de moche trollolol. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H.', 
     userId: hocine._id,
     author: hocine.profile.name,
     number: '14-022-006',
@@ -194,6 +194,7 @@ if (Tickets.find().count() === 0) {
   for (var i = 0; i < 5; i++) {
     Tickets.insert({
       title: 'Test ticket #' + i,
+      detail: 'Espace insuffisant', 
       author: damien.profile.name,
       userId: damien._id,
       submitted: now - i * 3600 * 1000,

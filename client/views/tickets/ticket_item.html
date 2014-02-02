@@ -8,41 +8,45 @@
                 <!-- Number / Tags -->
                 <div class="row no-margin">
                     <div class="col-md-2 col-lg-2 text-center no-padding">
-                        <p class="number">{{number}}</p>
-                        <p>
+                        <p class="number"><a href="{{pathFor 'ticketPage'}}">{{number}}</a></p>
+                        <div>
                             {{#if references}}
                                 {{#each references}}
-                                    <span class="label label-danger">{{this}}</span>
+                                    <span class="label label-danger no-border-radius">{{this}}</span>
                                 {{/each}}
                             {{/if}}
+                        </div>
+                        <div>
                             {{#if fields}}
                                 {{#each fields}}
-                                    <span class="label label-info">{{this}}</span>
+                                    <span class="label label-info no-border-radius">{{this}}</span>
                                 {{/each}}
                             {{/if}}
+                        </div>
+                        <div>
                             {{#if platforms}}
                                 {{#each platforms}}
-                                    <span class="label label-success">{{this}}</span>
+                                    <span class="label label-success no-border-radius">{{this}}</span>
                                 {{/each}}
                             {{/if}}
                             {{#if equipments}}
                                 {{#each equipments}}
-                                    <span class="label label-primary">{{this}}</span>
+                                    <span class="label label-primary no-border-radius">{{this}}</span>
                                 {{/each}}
                             {{/if}}
-                        </p>
+                        </div>
                     </div>
                     <!-- Title / Detail -->
                     <div class="col-md-10 no-padding">
                         <div class="row no-margin">
                             <div class="col-xs-10 no-padding">
-                                <blockquote class="no-margin">  
+                                <blockquote class="no-margin" style="padding-bottom:30px;">  
                                     {{#if title}}
                                         <p>{{title}}</p>
                                     {{/if}}
                                     {{#if detail}}
                                         <small>
-                                            {{detail}}
+                                            {{detailCustom}}
                                         </small>
                                     {{/if}}
                                 </blockquote>
@@ -51,8 +55,8 @@
                         </div>
                         <!-- Breadcrumb -->
                         <div class="row no-margin">
-                            <div class="col-xs-12 col-md-12 col-md-4 no-padding">
-                                <ol class="breadcrumb border-radius-top-right">
+                            <div class="col-xs-12 col-md-12 col-md-12 no-padding">
+                                <ol class="breadcrumb">
                                     <li>
                                         <span class="orange">
                                             <a href="#" id="participants" class="count" title="{{participantsList}}">

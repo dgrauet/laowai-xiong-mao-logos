@@ -12,6 +12,13 @@ Template.ticketItem.helpers({
         }
       }
       return liste;
+  },
+  detailCustom: function(){
+    var detail = this.detail;
+    if (detail.length > 40){
+        detail = detail.substring(0,40) + "...";
+    }
+    return detail;
   }
 });
 
