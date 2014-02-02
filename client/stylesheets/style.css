@@ -60,7 +60,7 @@ h3 {
 
 .ticket {
     padding: 5px;
-    border-bottom: solid 1px lightgrey;
+    border-bottom: solid 1px rgb(237, 127, 16);
     padding: 0px;
 }
 
@@ -70,14 +70,19 @@ h3 {
 
 blockquote {
     padding: 15px 20px;
-    border-left: solid 4px rgb(245,245,245);
+    border-left: solid 4px rgb(237, 127, 16);
     height: 80px;
 }
 
 p.number {
-    background: rgb(145,108,197);
+    background: rgb(237, 127, 16);
+    margin: 0px;
+}
+
+p.number a{
     color: white;
     margin: 0px;
+    text-decoration: none;
 }
 
 span.label {
@@ -92,12 +97,14 @@ span.label .close {
 
 a.count{
     text-decoration:none;
-    color:orange;
+    color:darkorange;
 }
 
 .breadcrumb {
     margin-bottom: 0px;
     border-radius: 0px;
+    border-top: solid 1px lightgrey;
+    border-left: solid 4px rgb(237, 127, 16);
 }
 
 .breadcrumb a:hover{
@@ -113,6 +120,19 @@ a.count{
 
 .orange{
     color: rgb(237, 127, 16);
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0px;
 }
 
 .wrapper {
