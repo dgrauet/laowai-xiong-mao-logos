@@ -152,7 +152,6 @@ if (Tickets.find().count() === 0) {
     references: [ '1401844060', '1401844061' ],
     submitted: now - 10 * 3600 * 1000,
     updated: now - 10 * 3600 * 1000,
-    commentsCount: 0,
     category: 'Astreinte',
     color: 'pink',
     participants: [ 'Hocine Mansouri' ],
