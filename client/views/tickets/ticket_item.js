@@ -13,12 +13,22 @@ Template.ticketItem.helpers({
       }
       return liste;
   },
-  detailCustom: function(){
-    var detail = this.detail;
-    if (detail.length > 40){
-        detail = detail.substring(0,40) + "...";
-    }
-    return detail;
+  submittedText: function() {
+    return moment(this.submitted).format('DD MMM hh:mm');
+  },
+  updatedText: function() {
+    return moment(this.updated).format('DD MMM hh:mm');
+  },
+  submittedTextToday: function() {
+    return moment(this.submitted).format('hh:mm');
+  },
+  updatedTextToday: function() {
+    return moment(this.updated).format('hh:mm');
+  },
+  isToday: function() {
+    isDay = moment().format('DDMMYY');
+    isSubmitted = moment(this.submitted).format('DDMMYY');
+    return isDay === isSubmitted;
   }
 });
 
