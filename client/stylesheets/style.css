@@ -70,8 +70,7 @@ h3 {
 
 blockquote {
     padding: 15px 20px;
-    
-    min-height: 80px;
+    min-height: 100px;
 }
 
 p.number {
