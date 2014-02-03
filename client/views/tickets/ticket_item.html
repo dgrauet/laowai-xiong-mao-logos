@@ -54,7 +54,6 @@
                                     {{/if}}
                                 </blockquote>
                             </div>
-                            {{#if ownTicket}}<a href="{{pathFor 'ticketEdit'}}">Edit</a>{{/if}}
                         </div>
                         <!-- Breadcrumb -->
                         <div class="row no-margin">
@@ -82,6 +81,11 @@
                                     <li>
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </li>
+                                    {{#if ownTicket}}
+                                    <li>
+                                        <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
+                                    </li>
+                                    {{/if}}
                                     {{#if attachmentsId}}
                                     <li>
                                         <a href="" class="count">{{attachmentsCount}}</a>
