@@ -1,16 +1,40 @@
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
+
+    // Create array of references
     var refList = References.find().fetch();
     var references = [];
-    console.log(references);
     for(i=0 ; i<refList.length ; i++){
       references[i] = refList[i].number;
     }
+
+    // Generate ticket number
+    function strPad(input, length, string) {
+    string = string || '0'; input = input + '';
+      return input.length >= length ? input : new Array(length - input.length + 1).join(string) + input;
+    }
+
+    function horoId() {
+        var dayTo = moment('YYYY', 'M', 'D', 0, 0, 0).unix()*1000;
+        var dayFrom = dayTo + 86400000;
+        var count = Tickets.find({ submitted: { $gte : dayTo, $lt : dayFrom } }).count();
+        var yearNumber = moment().format('YY');
+        var dayNumber = moment().format('DDDD');
+        var countInc = count++;
+        var countNumber = strPad(countInc,3,0);
+        var horoId = yearNumber + "-" + dayNumber + "-" + countNumber;
+        return horoId;
+    }
+
+    var horoId = horoId();
+
+    // Create ticket object
     var ticket = {
       references: references,
       title: $(event.target).find('[name=title]').val(),
-      detail: $(event.target).find('[name=detail]').val()
+      detail: $(event.target).find('[name=detail]').val(),
+      horoId: horoId
     }
 
     Meteor.call('ticket', ticket, function(error, id) {

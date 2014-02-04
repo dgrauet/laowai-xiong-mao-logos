@@ -8,7 +8,7 @@
                 <!-- Number / Tags -->
                 <div class="row no-margin border-left-orange">
                     <div class="col-md-2 col-lg-2 text-center no-padding">
-                        <p class="number"><a href="{{pathFor 'ticketPage'}}">{{number}}</a></p>
+                        <p class="horo-id"><a href="{{pathFor 'ticketPage'}}">{{horoId}}</a></p>
                         <div class="tags">
                             {{#if references}}
                                 <div>
@@ -34,7 +34,6 @@
                                     {{#each equipments}}
                                         <span class="label label-primary no-border-radius">{{this}}</span>
                                     {{/each}}
-                                    
                                 {{/if}}
                             </div>
                         </div>
