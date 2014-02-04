@@ -8,7 +8,7 @@ Tickets.allow({
 Tickets.deny({
   update: function(userId, ticket, fieldNames) {
     // may only edit the following two fields:
-    return (_.without(fieldNames, 'references', 'title', 'detail').length > 0);
+    return (_.without(fieldNames, 'references', 'title', 'detail', 'horoId').length > 0);
   }
 });
 
@@ -24,25 +24,13 @@ Meteor.methods({
     if (!ticketAttributes.title)
       throw new Meteor.Error(422, 'Champ titre à renseigner');
 
-    // Create number
-    var year = moment().format('YYYY');
-    var month = moment().format('M');
-    var day = moment().format('D');
-    var dayTo = new Date(year, month, day, 0, 0, 0).valueOf();
-    var dayFrom = dayTo - 86400000;
-    var count = Tickets.find({ submitted: { $gte : dayTo, $lt : dayFrom } }).count();
-    var yearNumber = moment().format('YY');
-    var dayNumber = moment().format('DDDD');
-    var countNumber = count + 1;
-    var number = yearNumber + "-" + dayNumber + "-" + countNumber;
-    console.log(number);
     // pick out the whitelisted keys
-    var ticket = _.extend(_.pick(ticketAttributes, 'references', 'title', 'detail'), {
+    var ticket = _.extend(_.pick(ticketAttributes, 'references', 'title', 'detail', 'horoId'), {
       title: ticketAttributes.title,
       detail: ticketAttributes.detail,
       userId: user._id, 
       author: user.profile.name, 
-      number: number,
+      horoId: horoId,
       submitted: new Date().getTime(),
       references: ticketAttributes.references,
       commentsCount: 0
