@@ -30,10 +30,14 @@ Meteor.methods({
       detail: ticketAttributes.detail,
       userId: user._id, 
       author: user.profile.name, 
-      horoId: horoId,
+      horoId: ticketAttributes.horoId,
       submitted: new Date().getTime(),
+      updated: new Date().getTime(),
       references: ticketAttributes.references,
-      commentsCount: 0
+      participants: [ user.profile.name ],
+      commentsCount: 0,
+      participantsCount: 1,
+      attachmentsCount: 0
     });
 
     var ticketId = Tickets.insert(ticket);
