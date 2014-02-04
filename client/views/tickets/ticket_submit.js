@@ -19,10 +19,10 @@ Template.ticketSubmit.events({
         var dayTo = moment('YYYY', 'M', 'D', 0, 0, 0).unix()*1000;
         var dayFrom = dayTo + 86400000;
         var count = Tickets.find({ submitted: { $gte : dayTo, $lt : dayFrom } }).count();
+        count++;
         var yearNumber = moment().format('YY');
         var dayNumber = moment().format('DDDD');
-        var countInc = count++;
-        var countNumber = strPad(countInc,3,0);
+        var countNumber = strPad(count,3,0);
         var horoId = yearNumber + "-" + dayNumber + "-" + countNumber;
         return horoId;
     }
@@ -35,8 +35,8 @@ Template.ticketSubmit.events({
       title: $(event.target).find('[name=title]').val(),
       detail: $(event.target).find('[name=detail]').val(),
       horoId: horoId
-    }
-
+    };
+    
     Meteor.call('ticket', ticket, function(error, id) {
       if (error) {
         // display the error to the user
