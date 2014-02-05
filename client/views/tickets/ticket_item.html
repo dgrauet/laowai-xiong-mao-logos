@@ -48,7 +48,9 @@
                                     {{/if}}
                                     {{#if detail}}
                                         <small>
-                                            {{detail}}
+                                            {{#nl2br}}
+                                                {{{detail}}}
+                                            {{/nl2br}}
                                         </small>
                                     {{/if}}
                                 </blockquote>
@@ -63,10 +65,6 @@
                                             <a href="#" id="participants" class="count" title="{{participantsList}}">
                                                 {{participantsCount}}
                                             </a>
-                                            <div class="tooltip top">
-                                                <div class="tooltip-inner"></div>
-                                                <div class="tooltip-arrow"></div>
-                                            </div>
                                         </span>
                                         <span class="glyphicon glyphicon-user"></span>
                                     </li>

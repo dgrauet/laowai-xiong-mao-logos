@@ -78,6 +78,10 @@ blockquote {
     min-height: 100px;
 }
 
+blockquote .small:before{
+  content: "";
+}
+
 p.horo-id {
     background: rgb(237, 127, 16);
     margin: 0px;
