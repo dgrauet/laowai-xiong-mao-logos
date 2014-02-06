@@ -87,7 +87,6 @@ blockquote small:before{
 }
 
 blockquote small{
-  text-indent: 15px;
   padding-left: 15px;
   text-align: justify;
 }
