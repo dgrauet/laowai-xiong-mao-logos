@@ -1,3 +1,9 @@
+Template.ticketSubmit.helpers({
+  categories: function() {
+    return Categories.find({}, {sort: {name: 1}});
+  }
+});
+
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
@@ -29,14 +35,20 @@ Template.ticketSubmit.events({
 
     var horoId = horoId();
 
+    // Retrieve color category
+    var category = $(event.target).find('[name=category]').val();
+    var catSel = Categories.find({name: category});
+
     // Create ticket object
     var ticket = {
       references: references,
       title: $(event.target).find('[name=title]').val(),
       detail: $(event.target).find('[name=detail]').val(),
-      horoId: horoId
+      horoId: horoId,
+      category: $(event.target).find('[name=category]').val(),
+      color: catSel.color
     };
-    
+
     Meteor.call('ticket', ticket, function(error, id) {
       if (error) {
         // display the error to the user
