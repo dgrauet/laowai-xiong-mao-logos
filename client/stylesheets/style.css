@@ -78,8 +78,18 @@ blockquote {
     min-height: 100px;
 }
 
-blockquote .small:before{
+blockquote p{
+  margin: 0px;
+}
+
+blockquote small:before{
   content: "";
+}
+
+blockquote small{
+  text-indent: 15px;
+  padding-left: 15px;
+  text-align: justify;
 }
 
 p.horo-id {
