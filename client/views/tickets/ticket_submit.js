@@ -37,7 +37,7 @@ Template.ticketSubmit.events({
 
     // Retrieve color category
     var category = $(event.target).find('[name=category]').val();
-    var catSel = Categories.find({name: category});
+    var catSel = Categories.find({name: category}).fetch();
 
     // Create ticket object
     var ticket = {
@@ -46,7 +46,7 @@ Template.ticketSubmit.events({
       detail: $(event.target).find('[name=detail]').val(),
       horoId: horoId,
       category: $(event.target).find('[name=category]').val(),
-      color: catSel.color
+      color: catSel[0]['color']
     };
 
     Meteor.call('ticket', ticket, function(error, id) {
