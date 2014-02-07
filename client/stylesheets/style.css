@@ -208,6 +208,10 @@ a.count{
   background: rgb(0,128,0);
 }
 
+.ribbon-yellow {
+  background: rgb(247,210,42);
+}
+
 .no-padding {
     padding: 0px;
 }
