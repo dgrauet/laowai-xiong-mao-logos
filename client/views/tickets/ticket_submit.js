@@ -1,6 +1,9 @@
 Template.ticketSubmit.helpers({
   categories: function() {
     return Categories.find({}, {sort: {name: 1}});
+  },
+  fields: function() {
+    return Fields.find({}, {sort: {name: 1}});
   }
 });
 
