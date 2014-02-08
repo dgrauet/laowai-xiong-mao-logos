@@ -9,6 +9,7 @@
                 <div class="row no-margin border-left-orange">
                     <div class="col-md-2 col-lg-2 text-center no-padding">
                         <p class="horo-id"><a href="{{pathFor 'ticketPage'}}">{{horoId}}</a></p>
+                        <!-- References -->
                         <div class="tags">
                             {{#if references}}
                                 <div>
@@ -17,6 +18,7 @@
                                     {{/each}}
                                 </div>
                             {{/if}}
+                            <!-- Fields -->
                             {{#if fields}}
                                 <div>
                                     {{#each fields}}
@@ -25,11 +27,13 @@
                                 </div>
                             {{/if}}
                             <div>
+                                <!-- Platforms -->
                                 {{#if platforms}}
                                     {{#each platforms}}
                                         <span class="label label-success no-border-radius">{{this}}</span>
                                     {{/each}}
                                 {{/if}}
+                                <!-- Equipments -->
                                 {{#if equipments}}
                                     {{#each equipments}}
                                         <span class="label label-primary no-border-radius">{{this}}</span>
