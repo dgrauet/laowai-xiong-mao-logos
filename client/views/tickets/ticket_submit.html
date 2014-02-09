@@ -13,13 +13,18 @@
         </div>
       </div>
       <div class="form-group">
-        {{#each fields}}
-        <label for="checkbox{{name}}" class="col-sm-1 checkbox-inline">
-          <div class="col-sm-3">
-            <input type="checkbox" id="checkbox{{name}}" value="{{name}}">{{name}}
-          </div>
-        </label>
-        {{/each}}
+        <label for="fields" class="col-sm-2 control-label">Fields</label>
+        <ul id="list-fields" class="list-unstyled">
+          {{#each fields}}
+            <li>
+              <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
+                <div class="col-sm-1">
+                  <input type="checkbox" id="checkbox{{name}}" value="{{name}}"><span class="glyphicon glyphicon-{{icon}}"></span>{{name}}
+                </div>
+              </label>
+            </li>
+          {{/each}}
+        </ul>
       </div>
       {{> referenceSubmit}}
       <div class="form-group">

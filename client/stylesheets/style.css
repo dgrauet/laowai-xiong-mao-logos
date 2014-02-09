@@ -1,7 +1,7 @@
 .navbar { margin-bottom: 0px }
 
 .navbar-default {
-  background-color: #ED7F10;
+  background-color: #e67e22;
   border: none;
 }
 
@@ -26,28 +26,28 @@
 .navbar-right .dropdown { margin-right: 10px }
 
 #login-buttons-password { 
-  background-color: #ED7F10;
+  background-color: #ecf0f1;
   border: none;
 }
 
 #login-buttons-logout { 
-  background-color: #FE373A;
+  background-color: #e74c3c;
   border: none;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #DEE5E4;
+    color: #ecf0f1;
     background-color: transparent;
 }
 
 .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: white;
-  background-color: #DEE5E4;
+  background-color: #f39c12;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: white;
-    background-color: #E38800;
+    background-color: #f39c12;
 }
 
 .alert{
@@ -55,7 +55,7 @@
   margin-bottom: 0px;
 }
 
-.jumbotron h1 { color: #505252 }
+.jumbotron h1 { color: #34495e }
 
 h3 {
     margin-bottom: 30px;
@@ -65,7 +65,7 @@ h3 {
 
 .ticket {
     padding: 5px;
-    border-bottom: solid 1px rgb(237, 127, 16);
+    border-bottom: solid 1px #e67e22;
     padding: 0px;
 }
 
@@ -80,6 +80,7 @@ blockquote {
 
 blockquote p{
   margin: 0px;
+  color: #34495e;
 }
 
 blockquote small:before{
@@ -89,10 +90,11 @@ blockquote small:before{
 blockquote small{
   padding-left: 15px;
   text-align: justify;
+  color: #95a5a6;
 }
 
 p.horo-id {
-    background: rgb(237, 127, 16);
+    background: #e67e22;
     margin: 0px;
 }
 
@@ -119,7 +121,7 @@ span.label .close {
 
 a.count{
     text-decoration:none;
-    color:darkorange;
+    color: #e67e22;
 }
 
 .breadcrumb {
@@ -131,7 +133,7 @@ a.count{
 
 .breadcrumb a:hover{
     text-decoration:none;
-    color: orange;
+    color: #e67e22;
 }
 
 .border-radius-top-right {
@@ -141,7 +143,7 @@ a.count{
 }
 
 .orange{
-    color: rgb(237, 127, 16);
+    color: #e67e22;
 }
 
 .label {
@@ -189,27 +191,27 @@ a.count{
 }
 
 .ribbon-blue {
-  background: rgb(49,118,183);
+  background: #3498db;
 }
 
 .ribbon-pink {
-  background: rgb(218,61,173);
+  background: #9b59b6;
 }
 
 .ribbon-red {
-  background: rgb(255,0,0);
+  background: #e74c3c;
 }
 
 .ribbon-orange {
-  background: rgb(255,165,0);
+  background: #e67e22;
 }
 
 .ribbon-green {
-  background: rgb(0,128,0);
+  background: #2ecc71;
 }
 
 .ribbon-yellow {
-  background: rgb(247,210,42);
+  background: #f1c40f;
 }
 
 .no-padding {
@@ -229,5 +231,5 @@ a.count{
 }
 
 .border-left-orange {
-    border-left: solid 4px rgb(237, 127, 16);
+    border-left: solid 4px #e67e22;
 }
