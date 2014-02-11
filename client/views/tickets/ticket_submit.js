@@ -18,6 +18,11 @@ Template.ticketSubmit.events({
       references[i] = refList[i].number;
     }
 
+    var fields = [];
+    $('input[name=fields]:checked').each(function() {
+      fields.push($(this).val());
+    });
+
     // Generate ticket number
     function strPad(input, length, string) {
     string = string || '0'; input = input + '';
@@ -49,7 +54,8 @@ Template.ticketSubmit.events({
       detail: $(event.target).find('[name=detail]').val(),
       horoId: horoId,
       category: $(event.target).find('[name=category]').val(),
-      color: catSel[0]['color']
+      color: catSel[0]['color'],
+      fields: fields
     };
 
     Meteor.call('ticket', ticket, function(error, id) {
