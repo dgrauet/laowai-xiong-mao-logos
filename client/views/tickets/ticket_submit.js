@@ -4,6 +4,9 @@ Template.ticketSubmit.helpers({
   },
   fields: function() {
     return Fields.find({}, {sort: {name: 1}});
+  },
+  platforms: function() {
+    return Platforms.find({}, {sort: {name: 1}});
   }
 });
 
@@ -21,6 +24,11 @@ Template.ticketSubmit.events({
     var fields = [];
     $('input[name=fields]:checked').each(function() {
       fields.push($(this).val());
+    });
+
+    var platforms = [];
+    $('input[name=platforms]:checked').each(function() {
+      platforms.push($(this).val());
     });
 
     // Generate ticket number
@@ -55,7 +63,8 @@ Template.ticketSubmit.events({
       horoId: horoId,
       category: $(event.target).find('[name=category]').val(),
       color: catSel[0]['color'],
-      fields: fields
+      fields: fields,
+      platforms: platforms
     };
 
     Meteor.call('ticket', ticket, function(error, id) {
