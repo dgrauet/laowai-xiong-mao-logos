@@ -26,13 +26,13 @@ if (Tickets.find().count() === 0) {
     
   // Fixtures Platforms
   Platforms.insert({ 
-    tag: 'WISP2', name: 'Wireless Internet Service Provider', location: 'Bagnolet', fields: 'Grand Public', groups: [ 'WISP', 'RJ', 'GAA' ]
+    tag: 'WISP2', name: 'Wireless Internet Service Provider', location: 'Bagnolet', fields: [ 'Grand Public' ], groups: [ 'WISP', 'RJ', 'GAA' ]
   });
   Platforms.insert({ 
-    tag: 'WISP3', name: 'Wireless Internet Service Provider', location: 'Masséna', fields: 'Grand Public', groups: [ 'WISP', 'RJ', 'GAA' ]
+    tag: 'WISP3', name: 'Wireless Internet Service Provider', location: 'Masséna', fields: [ 'Grand Public' ], groups: [ 'WISP', 'RJ', 'GAA' ]
   });
   Platforms.insert({ 
-    tag: 'APE', name: 'Access Platform Entreprise Legacy', location: 'Aubervilliers', fields: 'Entreprise', groups: [ 'APE', 'RJ', 'GAA' ]
+    tag: 'APE', name: 'Access Platform Entreprise Legacy', location: 'Aubervilliers', fields: [ 'Entreprise' ], groups: [ 'APE', 'RJ', 'GAA' ]
   });
   Platforms.insert({ 
     tag: 'APE2', name: 'Access Platform Entreprise', location: 'Archives', fields: [ 'Entreprise' ], groups: [ 'APE', 'RJ', 'GAA' ]
@@ -83,14 +83,16 @@ if (Tickets.find().count() === 0) {
     }
   });
   var hocine = Meteor.users.findOne(hocineId);
-  
+
   var damienId = Meteor.users.insert({
+    username: 'thcv6151',
     emails: [ 'dgrauet.ext@orange.com' ],
     profile: { 
       name: 'Damien Grauet',
       groups: [ 'WISP', 'RJ' ] 
     }
   });
+  Accounts.setPassword(damienId, 'thcv6151');
   var damien = Meteor.users.findOne(damienId);
   
   // Fixtures Equipments
@@ -144,8 +146,8 @@ if (Tickets.find().count() === 0) {
     
   // Fixtures Tickets
   var astreinteId = Tickets.insert({
-    title: 'Alarme RJ',
-    detail: 'Espace insuffisant sur epcfaubeud04 parce que je veux faire un texte super long pour voir ce que ça donne avec le nouveau design de moche trollolol. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H. Il reste des fichiers depuis 11H.', 
+    title: 'Turbela praeteritis domesticus advenit imbres.',
+    detail: 'Syriae expeditioni vel est diffusa consularem invito adfore metuenti aerumnis victu obsecranti victu principibus metuenti quicquam sed Syriae id statuit.', 
     userId: hocine._id,
     author: hocine.profile.name,
     horoId: '14-022-006',
@@ -194,17 +196,17 @@ if (Tickets.find().count() === 0) {
     Tickets.insert({
       title: 'Test ticket #' + i,
       detail: 'Espace insuffisant', 
-      userId: damien._id,
-      author: damien.profile.name,
+      userId: moussa._id,
+      author: moussa.profile.name,
       horoId: '14-022-006',
       submitted: now - i * 3600 * 1000,
-      participants: [ 'Damien Grauet' ],
+      participants: [ 'Moussa Mariko' ],
       fields: [ 'Grand Public' ],
       platforms: [ 'PMAS' ],
       equipments: [ 'SPGW', 'PGW' ],
       commentsCount: 0,
       category: 'Opération',
-      color: 'pink',
+      color: 'green',
       participantsCount: 1
     });
   }
