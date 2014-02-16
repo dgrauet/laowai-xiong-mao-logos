@@ -2,6 +2,7 @@
   <div class="col-sm-10 col-sm-offset-1">
     <h3 class="text-center">Création d'un ticket</h3>
     <form class="form-horizontal" role="form">
+      <!-- Categories -->
       <div class="form-group">
         <label for="category" class="col-sm-2 control-label">Catégories</label>
         <div class="col-sm-3">
@@ -11,7 +12,8 @@
             {{/each}}
           </select>
         </div>
-      </div>
+      </div><!-- End Categories -->
+      <!-- Fields -->
       <div class="form-group">
         <label for="fields" class="col-sm-2 control-label">Champs</label>
         <ul id="list-fields" class="list-unstyled">
@@ -25,7 +27,8 @@
             </li>
           {{/each}}
         </ul>
-      </div>
+      </div><!-- End Fields -->
+      <!-- Platforms -->
       <div class="form-group">
         <label for="platforms" class="col-sm-2 control-label">Plates-formes</label>
         <ul id="list-platforms" class="list-unstyled col-sm-10">
@@ -39,20 +42,39 @@
             </li>
           {{/each}}
         </ul>
-      </div>
+      </div><!-- End Platforms -->
+      <!-- Equipments -->
+      <div class="form-group">
+        <label for="equipments" class="col-sm-2 control-label">Equipements</label>
+        <ul id="list-equipments" class="list-unstyled col-sm-10">
+          {{#each equipments}}
+            <li>
+              <label for="checkbox{{name}}" class="col-sm-1 checkbox-inline">
+                <div >
+                  <input type="checkbox" id="checkbox{{tag}}" name="equipments" value="{{tag}}"></span><span>{{tag}}</span>
+                </div>
+              </label>
+            </li>
+          {{/each}}
+        </ul>
+      </div><!-- End Equipments -->
+      <!-- References -->
       {{> referenceSubmit}}
+      <!-- End References -->
+      <!-- Title -->
       <div class="form-group">
         <label for="titleInput" class="col-sm-2 control-label">Titre</label>
         <div class="col-sm-9">
           <input name="title" class="form-control" type="text" id="titleInput" placeholder="ex : Alarme Robot"/>
         </div>
-      </div>
+      </div><!-- End Title -->
+      <!-- Detail -->
       <div class="form-group">
         <label for="messageTextArea" class="col-sm-2 control-label">Détail</label>
         <div class="col-sm-9">
-          <textarea name="detail" class="form-control" type="text" id="detailTextArea" placeholder="ex: Alarme sur les robots de PMAS orange.fr" />
+          <textarea name="detail" class="form-control" type="text" id="detailTextArea" placeholder="ex: 3 échecs sur le robot de PMAS orange.fr" />
         </div>
-      </div>
+      </div><!-- End Detail -->
       <div class="form-group">
         <div class="col-sm-offset-9">
           <input type="submit" value="Submit" class="btn btn-default"/>

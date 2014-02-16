@@ -8,7 +8,7 @@ Tickets.allow({
 Tickets.deny({
   update: function(userId, ticket, fieldNames) {
     // may only edit the following two fields:
-    return (_.without(fieldNames, 'references', 'title', 'detail', 'horoId', 'category', 'color', 'fields', 'platforms').length > 0);
+    return (_.without(fieldNames, 'references', 'title', 'detail', 'horoId', 'category', 'color', 'fields', 'platforms', 'equipments').length > 0);
   }
 });
 
@@ -21,7 +21,7 @@ Meteor.methods({
       throw new Meteor.Error(401, 'Veuillez vous connecter');
 
     // pick out the whitelisted keys
-    var ticket = _.extend(_.pick(ticketAttributes, 'references', 'title', 'detail', 'horoId', 'category', 'color', 'fields', 'platforms'), {
+    var ticket = _.extend(_.pick(ticketAttributes, 'references', 'title', 'detail', 'horoId', 'category', 'color', 'fields', 'platforms', 'equipments'), {
       title: ticketAttributes.title,
       detail: ticketAttributes.detail,
       userId: user._id, 
@@ -35,6 +35,7 @@ Meteor.methods({
       participants: [ user.profile.name ],
       fields: ticketAttributes.fields,
       platforms: ticketAttributes.platforms,
+      equipments: ticketAttributes.equipments,
       commentsCount: 0,
       participantsCount: 1,
       attachmentsCount: 0
