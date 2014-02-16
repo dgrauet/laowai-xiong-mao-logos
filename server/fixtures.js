@@ -40,6 +40,18 @@ if (Tickets.find().count() === 0) {
   Platforms.insert({ 
     tag: 'APE4', name: 'Access Platform Entreprise', location: 'Aubervilliers', fields: [ 'Entreprise' ], groups: [ 'APE', 'RJ', 'GAA' ] 
   });
+  Platforms.insert({ 
+    tag: 'GIBAGN', name: 'Pop GI', location: 'Bagnolet', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
+  });
+  Platforms.insert({ 
+    tag: 'GIMASS', name: 'Pop GI', location: 'Masséna', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
+  });  Platforms.insert({ 
+    tag: 'GIBEON', name: 'Pop GI', location: 'Beaujon', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
+  });  Platforms.insert({ 
+    tag: 'GILACA', name: 'Pop GI', location: 'Lacassagne', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
+  });  Platforms.insert({ 
+    tag: 'GIBLAN', name: 'Pop GI', location: 'Blanc-Mesnil', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
+  });
   Platforms.insert({
     tag: 'EPCFBOME', name: 'Pop SGI', location: 'Bordeaux Mériadec', fields: [ 'Grand Public', 'Entreprise', 'Réquisition Légale', 'Facturation' ], groups: [ 'WISP', 'RJ', 'APE', 'CSG', 'GAA' ]
   });
@@ -70,7 +82,7 @@ if (Tickets.find().count() === 0) {
     emails: [ 'mmariko.ext@orange.com' ],
     profile: { 
       name: 'Moussa Mariko',
-      groups: 'GAA'
+      groups: [ 'GAA' ]
     }
   });
   var moussa = Meteor.users.findOne(moussaId);
@@ -79,7 +91,7 @@ if (Tickets.find().count() === 0) {
     emails: [ 'hmansouri.ext@orange.com' ],
     profile: { 
       name: 'Hocine Mansouri',
-      groups: 'GAA'
+      groups: [ 'GAA' ]
     }
   });
   var hocine = Meteor.users.findOne(hocineId);
@@ -194,8 +206,8 @@ if (Tickets.find().count() === 0) {
   
   for (var i = 0; i < 5; i++) {
     Tickets.insert({
-      title: 'Test ticket #' + i,
-      detail: 'Espace insuffisant', 
+      title: 'Plus voluntatibus et ac restricte.' + i,
+      detail: 'Instituto coquinae tessera et ministerium in dexteris catervas ut otiosis vicinitate familiae densas inter aptatae rectores iniectans vias multitudo otiosis.', 
       userId: moussa._id,
       author: moussa.profile.name,
       horoId: '14-022-006',

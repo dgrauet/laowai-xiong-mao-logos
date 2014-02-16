@@ -5,8 +5,8 @@ Template.ticketEdit.events({
     var currentTicketId = this._id;
 
     var ticketProperties = {
-      url: $(event.target).find('[name=url]').val(),
-      title: $(event.target).find('[name=title]').val()
+      title: $(event.target).find('[name=title]').val(),
+      detail: $(event.target).find('[name=detail]').val()
     }
 
     Tickets.update(currentTicketId, {$set: ticketProperties}, function(error) {
