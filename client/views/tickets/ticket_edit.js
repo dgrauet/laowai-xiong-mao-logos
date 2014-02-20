@@ -1,3 +1,12 @@
+currentTicketId = this._id
+
+Template.detailEdit.helpers({
+  detail: function(){
+    var currentTicket = Tickets.findOne({_id: currentTicketId});
+    return currentTicket.detail;
+  }
+});
+
 Template.ticketEdit.events({
   'submit form': function(event) {
     event.preventDefault();
@@ -17,14 +26,14 @@ Template.ticketEdit.events({
         Router.go('ticketPage', {_id: currentTicketId});
       }
     });
-  },
+  }//,
 
-  'click .delete': function(event) {
-    event.preventDefault();
-    if (confirm("Delete this ticket ?")) {
-      var currentTicketId = this._id;
-      Tickets.remove(currentTicketId);
-      Router.go('ticketsList');
-    }
-  }
+  // 'click .delete': function(event) {
+  //   event.preventDefault();
+  //   if (confirm("Delete this ticket ?")) {
+  //     var currentTicketId = this._id;
+  //     Tickets.remove(currentTicketId);
+  //     Router.go('ticketsList');
+  //   }
+  // }
 });
