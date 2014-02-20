@@ -2,62 +2,10 @@
   <div class="col-sm-10 col-sm-offset-1">
     <h3 class="text-center">Création d'un ticket</h3>
     <form class="form-horizontal" role="form">
-      <!-- Categories -->
-      <div class="form-group">
-        <label for="category" class="col-sm-2 control-label">Catégories</label>
-        <div class="col-sm-3">
-          <select name="category" id="category" class="form-control">
-            {{#each categories}}
-              <option >{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </div><!-- End Categories -->
-      <!-- Fields -->
-      <div class="form-group">
-        <label for="fields" class="col-sm-2 control-label">Champs</label>
-        <ul id="list-fields" class="list-unstyled">
-          {{#each fields}}
-            <li>
-              <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
-                <div class="col-sm-1">
-                  <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}"><span class="glyphicon glyphicon-{{icon}}"></span><span>{{name}}</span>
-                </div>
-              </label>
-            </li>
-          {{/each}}
-        </ul>
-      </div><!-- End Fields -->
-      <!-- Platforms -->
-      <div class="form-group">
-        <label for="platforms" class="col-sm-2 control-label">Plates-formes</label>
-        <ul id="list-platforms" class="list-unstyled col-sm-10">
-          {{#each platforms}}
-            <li>
-              <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
-                <div >
-                  <input type="checkbox" id="checkbox{{tag}}" name="platforms" value="{{tag}}"></span><span>{{tag}}</span>
-                </div>
-              </label>
-            </li>
-          {{/each}}
-        </ul>
-      </div><!-- End Platforms -->
-      <!-- Equipments -->
-      <div class="form-group">
-        <label for="equipments" class="col-sm-2 control-label">Equipements</label>
-        <ul id="list-equipments" class="list-unstyled col-sm-10">
-          {{#each equipments}}
-            <li>
-              <label for="checkbox{{name}}" class="col-sm-1 checkbox-inline">
-                <div >
-                  <input type="checkbox" id="checkbox{{tag}}" name="equipments" value="{{tag}}"></span><span>{{tag}}</span>
-                </div>
-              </label>
-            </li>
-          {{/each}}
-        </ul>
-      </div><!-- End Equipments -->
+      {{> categories }}
+      {{> fields }}
+      {{> platforms }}
+      {{> equipments }}
       <!-- References -->
       {{> referenceSubmit}}
       <!-- End References -->
@@ -81,5 +29,69 @@
         </div>
       </div>
     </form>
+  </div>
+</template>
+
+<template name="categories">
+  <div class="form-group">
+    <label for="category" class="col-sm-2 control-label">Catégories</label>
+    <div class="col-sm-3">
+      <select name="category" id="category" class="form-control">
+        {{#each categories}}
+          <option >{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+</template>
+
+<template name="fields">
+  <div class="form-group">
+    <label for="fields" class="col-sm-2 control-label">Champs</label>
+    <ul id="list-fields" class="list-unstyled">
+      {{#each fields}}
+        <li>
+          <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
+            <div class="col-sm-1">
+              <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}"><span class="glyphicon glyphicon-{{icon}}"></span><span>{{name}}</span>
+            </div>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="platforms">
+  <div class="form-group">
+    <label for="platforms" class="col-sm-2 control-label">Plates-formes</label>
+    <ul id="list-platforms" class="list-unstyled col-sm-10">
+      {{#each platforms}}
+        <li>
+          <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
+            <div >
+              <input type="checkbox" id="checkbox{{tag}}" name="platforms" value="{{tag}}"></span><span>{{tag}}</span>
+            </div>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="equipments">
+  <div class="form-group">
+    <label for="equipments" class="col-sm-2 control-label">Equipements</label>
+    <ul id="list-equipments" class="list-unstyled col-sm-10">
+      {{#each equipments}}
+        <li>
+          <label for="checkbox{{name}}" class="col-sm-1 checkbox-inline">
+            <div >
+              <input type="checkbox" id="checkbox{{tag}}" name="equipments" value="{{tag}}"></span><span>{{tag}}</span>
+            </div>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </template>

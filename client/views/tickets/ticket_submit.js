@@ -1,18 +1,3 @@
-Template.ticketSubmit.helpers({
-  categories: function() {
-    return Categories.find({}, {sort: {name: 1}});
-  },
-  fields: function() {
-    return Fields.find({}, {sort: {name: 1}});
-  },
-  platforms: function() {
-    return Platforms.find({}, {sort: {tag: 1}});
-  },
-  equipments: function() {
-    return Equipments.find({}, {sort: {tag: 1}});
-  }
-});
-
 Template.ticketSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
@@ -86,5 +71,29 @@ Template.ticketSubmit.events({
         Router.go('ticketPage', {_id: id});
       }
     });
+  }
+});
+
+Template.categories.helpers({
+  categories: function() {
+    return Categories.find({}, {sort: {name: 1}});
+  }
+});
+
+Template.fields.helpers({
+  fields: function() {
+    return Fields.find({}, {sort: {name: 1}});
+  }
+});
+
+Template.platforms.helpers({
+  platforms: function() {
+    return Platforms.find({}, {sort: {tag: 1}});
+  }
+});
+
+Template.equipments.helpers({
+  equipments: function() {
+    return Equipments.find({}, {sort: {tag: 1}});
   }
 });
