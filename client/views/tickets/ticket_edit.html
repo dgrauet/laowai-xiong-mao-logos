@@ -1,11 +1,6 @@
 <template name="ticketEdit">
   <form class="main">
-    <div class="form-group">
-        <label class="control-label" for="title">Titre</label>
-        <div class="controls">
-            <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
-        </div>
-    </div>
+    {{> titleEdit}}
     {{> detailEdit}}
     <div class="form-group">
         <div class="controls">
@@ -21,11 +16,20 @@
   </form>
 </template>
 
+<template name="titleEdit">
+    <div class="form-group">
+        <label class="control-label" for="title">Titre</label>
+        <div class="controls">
+            <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
+        </div>
+    </div>
+</template>
+
 <template name="detailEdit">
     <div class="form-group">
         <label class="control-label" for="detail">Détail</label>
         <div class="controls">
-            <textarea name="title" class="form-control" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{detail}}</textarea>
+            <textarea name="detail" class="form-control" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{{detail}}}</textarea>
         </div>
     </div>
 </template>
