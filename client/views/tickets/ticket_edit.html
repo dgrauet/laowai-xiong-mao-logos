@@ -35,3 +35,20 @@
         </div>
     </div>
 </template>
+
+<template name="fieldsEdit">
+  <div class="form-group">
+    <label for="fields" class="col-sm-2 control-label">Champs</label>
+    <ul id="list-fields" class="list-unstyled">
+      {{#each fields}}
+        <li>
+          <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
+            <div class="col-sm-1">
+              <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}"><span class="glyphicon glyphicon-{{icon}}"></span><span>{{name}}</span>
+            </div>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

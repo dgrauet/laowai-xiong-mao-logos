@@ -1,12 +1,3 @@
-//currentTicketId = this._id;
-
-Template.detailEdit.helpers({
-  detail: function(){
-    var currentTicket = Tickets.findOne({_id: this._id});
-    return currentTicket.detail;
-  }
-});
-
 Template.ticketEdit.helpers({
   ownTicket: function() {
     return this.userId == Meteor.userId();
@@ -41,5 +32,22 @@ Template.ticketEdit.events({
       Tickets.remove(currentTicketId);
       Router.go('ticketsList');
     }
+  }
+});
+
+Template.detailEdit.helpers({
+  detail: function(){
+    var currentTicket = Tickets.findOne({_id: this._id});
+    return currentTicket.detail;
+  }
+});
+
+Template.fieldsEdit.helpers({
+  fields: function(){
+    var currentTicket = Tickets.findOne({_id: this._id});
+    return currentTicket.fields;
+  },
+  checked: function(){
+    
   }
 });
