@@ -1,8 +1,8 @@
-currentTicketId = this._id
+//currentTicketId = this._id;
 
 Template.detailEdit.helpers({
   detail: function(){
-    var currentTicket = Tickets.findOne({_id: currentTicketId});
+    var currentTicket = Tickets.findOne({_id: this._id});
     return currentTicket.detail;
   }
 });
