@@ -7,6 +7,12 @@ Template.detailEdit.helpers({
   }
 });
 
+Template.ticketEdit.helpers({
+  ownTicket: function() {
+    return this.userId == Meteor.userId();
+  }
+});
+
 Template.ticketEdit.events({
   'submit form': function(event) {
     event.preventDefault();
@@ -26,14 +32,14 @@ Template.ticketEdit.events({
         Router.go('ticketPage', {_id: currentTicketId});
       }
     });
-  }//,
+  },
 
-  // 'click .delete': function(event) {
-  //   event.preventDefault();
-  //   if (confirm("Delete this ticket ?")) {
-  //     var currentTicketId = this._id;
-  //     Tickets.remove(currentTicketId);
-  //     Router.go('ticketsList');
-  //   }
-  // }
+  'click .delete': function(event) {
+    event.preventDefault();
+    if (confirm("Delete this ticket ?")) {
+      var currentTicketId = this._id;
+      Tickets.remove(currentTicketId);
+      Router.go('ticketsList');
+    }
+  }
 });
