@@ -8,11 +8,13 @@
         </div>
     </div>
     <hr/>
-    <!-- <div class="form-group">
-        <div class="controls">
-            <a class="btn btn-danger delete" href="#">Delete ticket</a>
+    {{#if ownTicket}}
+        <div class="form-group">
+            <div class="controls">
+                <a class="btn btn-danger delete" href="#">Delete ticket</a>
+            </div>
         </div>
-    </div> -->
+    {{/if}}
   </form>
 </template>
 
