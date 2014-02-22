@@ -2,6 +2,7 @@
   <form class="main">
     {{> titleEdit}}
     {{> detailEdit}}
+    {{> fieldsEdit}}
     <div class="form-group">
         <div class="controls">
             <input type="submit" value="Submit" class="btn btn-primary submit"/>
@@ -43,8 +44,9 @@
       {{#each fields}}
         <li>
           <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
-            <div class="col-sm-1">
-              <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}"><span class="glyphicon glyphicon-{{icon}}"></span><span>{{name}}</span>
+            <div>
+              <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}" >
+              <span>{{name}}</span>
             </div>
           </label>
         </li>
