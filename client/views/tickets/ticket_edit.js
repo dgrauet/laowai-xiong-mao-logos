@@ -44,10 +44,10 @@ Template.detailEdit.helpers({
 
 Template.fieldsEdit.helpers({
   fields: function(){
-    var currentTicket = Tickets.findOne({_id: this._id});
-    return currentTicket.fields;
+    return Fields.find({}, {sort: {name: 1}});
   },
-  checked: function(){
-    
+  hasField: function(){
+    var currentTicket = Tickets.findOne({_id: this._id});
+    return _.contains(currentTicket.fields, this.value) ? 'checked' : '';
   }
 });
