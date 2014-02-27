@@ -13,7 +13,7 @@ if (Tickets.find().count() === 0) {
   // Fixtures Categories
   Categories.insert({ name: 'Sox', color: 'yellow' });
   Categories.insert({ name: 'Opération', color: 'green' });
-  Categories.insert({ name: 'Incident', color: 'orange' });
+  Categories.insert({ name: 'Incident', color: 'red' });
   Categories.insert({ name: 'Check du matin', color: 'blue' });
   Categories.insert({ name: 'Check du soir', color: 'blue' });
   Categories.insert({ name: 'Astreinte', color: 'pink' });

@@ -1,56 +1,52 @@
 <template name="ticketEdit">
-  <form class="main">
-    {{> titleEdit}}
-    {{> detailEdit}}
-    {{> fieldsEdit}}
-    <div class="form-group">
-        <div class="controls">
-            <input type="submit" value="Submit" class="btn btn-primary submit"/>
+    {{#with ticket}}
+    <form class="main">
+        <div class="form-group">
+            <label class="control-label" for="title">Titre</label>
+            <div class="controls">
+                <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
+            </div>
         </div>
-    </div>
-    <hr/>
-    {{#if ownTicket}}
+        <div class="form-group">
+            <label class="control-label" for="detail">Détail</label>
+            <div class="controls">
+                <textarea name="detail" class="form-control" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{{detail}}}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fields" class="col-sm-2 control-label">Champs</label>
+            <ul id="list-fields" class="list-unstyled">
+              {{#each fields}}
+                <li>
+                    <label for="checkbox_{{tag}}" class="col-sm-2 checkbox-inline">
+                        <div>
+                          <input type="checkbox" id="checkbox_{{tag}}" name="fields" value="{{_id}}" {{checked}} />
+                          <span>{{name}}</span>
+                        </div>
+                    </label>
+                </li>
+              {{/each}}
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="control-label post-form-date">Début</label>
+            <div class="controls">
+                <input id="submitted_date" type="text" value="{{submittedDate}}" />
+            </div>
+        </div>
         <div class="form-group">
             <div class="controls">
-                <a class="btn btn-danger delete" href="#">Delete ticket</a>
+                <input type="submit" value="Submit" class="btn btn-primary submit"/>
             </div>
         </div>
-    {{/if}}
-  </form>
-</template>
-
-<template name="titleEdit">
-    <div class="form-group">
-        <label class="control-label" for="title">Titre</label>
-        <div class="controls">
-            <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
-        </div>
-    </div>
-</template>
-
-<template name="detailEdit">
-    <div class="form-group">
-        <label class="control-label" for="detail">Détail</label>
-        <div class="controls">
-            <textarea name="detail" class="form-control" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{{detail}}}</textarea>
-        </div>
-    </div>
-</template>
-
-<template name="fieldsEdit">
-  <div class="form-group">
-    <label for="fields" class="col-sm-2 control-label">Champs</label>
-    <ul id="list-fields" class="list-unstyled">
-      {{#each fields}}
-        <li>
-          <label for="checkbox{{name}}" class="col-sm-2 checkbox-inline">
-            <div>
-              <input type="checkbox" id="checkbox{{tag}}" name="fields" value="{{name}}" >
-              <span>{{name}}</span>
+        <hr/>
+        {{#if ownTicket}}
+            <div class="form-group">
+                <div class="controls">
+                    <a class="btn btn-danger delete" href="#">Delete ticket</a>
+                </div>
             </div>
-          </label>
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+        {{/if}}
+    </form>
+    {{/with}}
 </template>
