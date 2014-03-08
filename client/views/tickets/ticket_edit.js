@@ -19,7 +19,13 @@ Template.ticketEdit.helpers({
       field.checked = _.contains(ticket.fields, field.name) ? 'checked' : '';
       return field;
     });
-  }
+  },
+  submitted: function(){
+    return moment(this.submitted).format("DD/MM/YYYY HH:mm:ss");
+  },
+  updated: function(){
+    return moment(this.updated).format("DD/MM/YYYY HH:mm:ss");
+  },
 });
 
 Template.ticketEdit.events({
@@ -34,10 +40,18 @@ Template.ticketEdit.events({
         fields.push(field.name);
     });
 
+    var submitted = $(event.target).find('[name=submitted]').val();
+    var updated = $(event.target).find('[name=updated]').val();
+    console.log(submitted);
+    console.log(updated);
+    console.log(moment(submitted).unix()*1000);
+    console.log(moment(updated).unix()*1000);
     var ticketProperties = {
       title: $(event.target).find('[name=title]').val(),
       detail: $(event.target).find('[name=detail]').val(),
-      fields: fields
+      fields: fields,
+      submitted : moment(submitted).unix()*1000,
+      updated: moment(updated).unix()*1000
     }
 
     Tickets.update(currentTicketId, {$set: ticketProperties}, function(error) {

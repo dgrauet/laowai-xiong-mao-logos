@@ -8,7 +8,7 @@ Tickets.allow({
 Tickets.deny({
   update: function(userId, ticket, fieldNames) {
     // may only edit the following fields:
-    return (_.without(fieldNames, 'references', 'title', 'detail', 'fields', 'platforms', 'equipments').length > 0);
+    return (_.without(fieldNames, 'references', 'title', 'detail', 'fields', 'platforms', 'equipments', 'submitted', 'updated').length > 0);
   }
 });
 

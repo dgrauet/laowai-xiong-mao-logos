@@ -14,16 +14,16 @@ Template.ticketItem.helpers({
       return liste;
   },
   submittedText: function() {
-    return moment(this.submitted).format('DD MMM hh:mm');
+    return moment(this.submitted).format('DD MMM HH:mm');
   },
   updatedText: function() {
-    return moment(this.updated).format('DD MMM hh:mm');
+    return moment(this.updated).format('DD MMM HH:mm');
   },
   submittedTextToday: function() {
-    return moment(this.submitted).format('hh:mm');
+    return moment(this.submitted).format('HH:mm');
   },
   updatedTextToday: function() {
-    return moment(this.updated).format('hh:mm');
+    return moment(this.updated).format('HH:mm');
   },
   isToday: function() {
     isDay = moment().format('DDMMYY');
