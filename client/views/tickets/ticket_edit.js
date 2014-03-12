@@ -1,5 +1,19 @@
 Template.ticketEdit.created = function() {
   ticket = Tickets.findOne(this.data.ticketId);
+  if (_.has(ticket, 'references')){
+    var references = [];
+    var referencesList = ticket.references;
+    for(i=0 ; i<referencesList.length ; i++){
+      references[i] = {
+        number: referencesList[i]
+      };
+      Meteor.call('reference', references[i], function(error) {
+        if (error) {
+            throwError(error.reason);
+        }
+      });
+    }
+  }
 }
 
 Template.ticketEdit.helpers({
@@ -8,6 +22,13 @@ Template.ticketEdit.helpers({
   },
   ticket: function() {
     return Tickets.findOne(this.ticketId);
+  },
+  categories: function(){
+    var ticket = this;
+    return Categories.find().map(function(category) {
+      category.selected = ticket.category === category.name ? 'selected' : '';
+      return category;
+    });
   },
   detail: function(){
     var currentTicket = Tickets.findOne({_id: this._id});
@@ -20,36 +41,74 @@ Template.ticketEdit.helpers({
       return field;
     });
   },
+  platforms: function(){
+    var ticket = this;
+    return Platforms.find().map(function(platform) {
+      platform.checked = _.contains(ticket.platforms, platform.tag) ? 'checked' : '';
+      return platform;
+    });
+  },
+  equipments: function(){
+    var ticket = this;
+    return Equipments.find().map(function(equipment) {
+      equipment.checked = _.contains(ticket.equipments, equipment.tag) ? 'checked' : '';
+      return equipment;
+    });
+  },
+  references: function(){
+    return References.find();
+  },
   submitted: function(){
     return moment(this.submitted).format("DD/MM/YYYY HH:mm:ss");
   },
   updated: function(){
     return moment(this.updated).format("DD/MM/YYYY HH:mm:ss");
-  },
+  }
 });
 
 Template.ticketEdit.events({
   'submit form': function(event) {
     event.preventDefault();
-    var fields = [];
     var currentTicketId = this._id;
 
+    var fields = [];
     $('input[name=fields]:checked').each(function() {
       var fieldId = $(this).val();
       if(field = Fields.findOne(fieldId))
         fields.push(field.name);
     });
 
+    var platforms = [];
+    $('input[name=platforms]:checked').each(function() {
+      var platformId = $(this).val();
+      if(platform = Platforms.findOne(platformId))
+        platforms.push(platform.tag);
+    });
+
+    var equipments = [];
+    $('input[name=equipments]:checked').each(function() {
+      var equipmentId = $(this).val();
+      if(equipment = Equipments.findOne(equipmentId))
+        equipments.push(equipment.tag);
+    });
+
+    var referencesList = References.find().fetch();
+    var references = [];
+    for(i=0 ; i<referencesList.length ; i++){
+      references[i] = referencesList[i].number;
+    }
+
     var submitted = $(event.target).find('[name=submitted]').val();
     var updated = $(event.target).find('[name=updated]').val();
-    console.log(submitted);
-    console.log(updated);
-    console.log(moment(submitted).unix()*1000);
-    console.log(moment(updated).unix()*1000);
     var ticketProperties = {
       title: $(event.target).find('[name=title]').val(),
       detail: $(event.target).find('[name=detail]').val(),
+      category: $(event.target).find('[name=category]').val(),
+      color: $("#category").find('option:selected').attr("data-color"),
       fields: fields,
+      platforms: platforms,
+      equipments: equipments,
+      references: references,
       submitted : moment(submitted).unix()*1000,
       updated: moment(updated).unix()*1000
     }

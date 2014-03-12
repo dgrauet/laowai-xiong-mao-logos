@@ -1,25 +1,23 @@
 // Local (client-only) collection
 References = new Meteor.Collection(null);
 
+clearReferences = function() {
+  References.remove({});
+}
+
 Meteor.methods({
   reference: function(referenceAttributes) {
     var user = Meteor.user();
-    var referenceExists = References.findOne({number: referenceAttributes.number});
 
     // ensure the user is logged in
     if (!user){
-      throw new Meteor.Error(401, "Vous devez vous connecter pour insérer un numéro de référence");
+      throw new Meteor.Error(401, 'Vous devez vous connecter pour insérer un numéro de référence');
     }
-    // ensure the input is not empty
+    
     if (!referenceAttributes.number){
-      throw new Meteor.Error(403, "Veuillez renseigner un numéro de ticket");
-    }
-    // check that there are no previous tickets with the same link
-    if (referenceAttributes.number && referenceExists) {
-      throw new Meteor.Error(302, 'Ce numéro de réference est déjà dans la liste', referenceExists._id);
+      throw new Meteor.Error(403, 'Veuillez renseigner un numéro de ticket');
     }
 
-    // pick out the whitelisted keys
     var reference = _.extend(_.pick(referenceAttributes, 'number'), {
       number: referenceAttributes.number
     });
@@ -28,5 +26,6 @@ Meteor.methods({
       number: reference.number
     });
     return referenceId;
+    
   }
 });
