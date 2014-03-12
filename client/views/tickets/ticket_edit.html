@@ -1,66 +1,113 @@
 <template name="ticketEdit">
-    {{#with ticket}}
-    <h3 class="text-center">Edition du ticket {{horoId}}</h3>
-    <form class="main form-horizontal">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 form-group">
-                <label class="control-label" for="title">Titre</label>
-                <div class="controls">
-                    <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 form-group">
-                <label class="control-label" for="detail">Détail</label>
-                <div class="controls">
-                    <textarea name="detail" class="form-control" rows="5" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{{detail}}}</textarea>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-1 form-group">
-                <label for="fields" class="control-label">Champs</label>
-                <ul id="list-fields" class="list-unstyled">
-                  {{#each fields}}
-                    <li>
-                        <label for="checkbox_{{tag}}" class="col-sm-2 checkbox-inline">
-                            <div>
-                              <input type="checkbox" id="checkbox_{{tag}}" name="fields" value="{{_id}}" {{checked}} />
-                              <span>{{name}}</span>
-                            </div>
-                        </label>
-                    </li>
-                  {{/each}}
-                </ul>
-            </div>
-            <div class="col-md-2">
-                <label class="control-label" for="submitted_date">Début</label>
-                <div class="controls">
-                    <input id="submitted_date" type="text" name="submitted" value="{{submitted}}" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <label class="control-label" for="updated_date">Fin</label>
-                <div class="controls">
-                    <input id="updated_date" type="text" name="updated" value="{{updated}}" />
-                </div>
-            </div>
-        </div>
-
+  {{#with ticket}}
+  <div class="col-sm-10 col-sm-offset-1">
+      <h3 class="text-center">Edition du ticket {{horoId}}</h3>
+      <form class="main form-horizontal">
+        <!-- Categories -->
         <div class="form-group">
-            <div class="controls">
+          <label for="category" class="col-sm-2 control-label">Catégories</label>
+          <div class="col-sm-3">
+            <select name="category" id="category" class="form-control">
+              {{#each categories}}
+                <option value="{{name}}" data-color="{{color}}" {{selected}}>{{name}}</option>
+              {{/each}}
+            </select>
+          </div><!-- col-sm-3 -->
+        </div><!-- form-group -->
+        <!-- End Categories -->
+        <!-- Fields -->
+        <div class="form-group">
+          <label for="fields" class="col-sm-2 control-label">Champs</label>
+          <ul id="list-fields" class="list-unstyled">
+            {{#each fields}}
+              <li>
+                <label for="checkbox_{{tag}}" class="col-sm-2 checkbox-inline">
+                  <div class="col-sm-1">
+                    <input type="checkbox" id="checkbox_{{tag}}" name="fields" value="{{_id}}" {{checked}}>
+                    <span class="glyphicon glyphicon-{{icon}}"></span>
+                    <span>{{name}}</span>
+                  </div>
+                </label>
+              </li>
+            {{/each}}
+          </ul>
+        </div><!-- form-group -->
+        <!-- End Fields -->
+        <!-- Platforms -->
+        <div class="form-group">
+          <label for="platforms" class="col-sm-2 control-label">Plates-formes</label>
+          <ul id="list-platforms" class="list-unstyled col-sm-10">
+            {{#each platforms}}
+              <li>
+                <label for="checkbox_{{tag}}" class="col-sm-2 checkbox-inline">
+                  <div >
+                    <input type="checkbox" id="checkbox_{{tag}}" name="platforms" value="{{_id}}" {{checked}}></span><span>{{tag}}</span>
+                  </div>
+                </label>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <!-- End Platforms -->
+        <!-- Equipments -->
+        <div class="form-group">
+          <label for="equipments" class="col-sm-2 control-label">Equipements</label>
+          <ul id="list-equipments" class="list-unstyled col-sm-10">
+            {{#each equipments}}
+              <li>
+                <label for="checkbox_{{tag}}" class="col-sm-1 checkbox-inline">
+                  <div >
+                    <input type="checkbox" id="checkbox_{{tag}}" name="equipments" value="{{_id}}"></span><span>{{tag}}</span>
+                  </div>
+                </label>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <!-- End Equipments -->
+        <!-- References -->
+        {{> referenceSubmit}}
+        <!-- End References -->
+        <!-- Title -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="title">Titre</label>
+            <div class="controls col-sm-8">
+                <input name="title" class="form-control" type="text" value="{{title}}" placeholder="ex : Alarme robot"/>
+            </div>
+        </div>
+        <!-- End Title -->
+        <!-- Detail -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="detail">Détail</label>
+            <div class="controls col-sm-8">
+                <textarea name="detail" class="form-control" rows="5" type="text" placeholder="ex : 3 échecs sur le robot de PMAS orange.fr">{{{detail}}}</textarea>
+            </div>
+        </div>
+        <!-- End Detail -->
+        <!-- Date -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="submitted_date">Début</label>
+            <div class="controls col-sm-2">
+                <input class="form-control" id="submitted_date" type="text" name="submitted" value="{{submitted}}" />
+            </div>
+            <label class="col-sm-2 control-label" for="updated_date">Fin</label>
+            <div class="controls col-sm-2">
+                <input class="form-control" id="updated_date" type="text" name="updated" value="{{updated}}" />
+            </div>
+        </div>
+        <!-- End Date -->
+        <!-- Submit -->
+        <div class="form-group">
+            <div class="col-sm-offset-9 controls">
                 <input type="submit" value="Submit" class="btn btn-primary submit"/>
             </div>
         </div>
+        <!-- End Submit -->
         <hr/>
         {{#if ownTicket}}
-            <div class="form-group">
-                <div class="controls">
-                    <a class="btn btn-danger delete" href="#">Delete ticket</a>
-                </div>
-            </div>
+          <a class="btn btn-danger delete" href="#">Delete ticket</a>
         {{/if}}
-    </form>
-    {{/with}}
+      </form>
+  </div>
+  {{/with}}
 </template>
