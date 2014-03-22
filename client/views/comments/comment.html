@@ -1,9 +1,26 @@
 <template name="comment">
   <li>
-    <h4>
-      <span class="author">{{author}}</span>
-      <span class="date">on {{submittedText}}</span>
-    </h4>
-    <p>{{body}}</p>
+    <div class="row no-margin comment-content">
+      <div class="col-md-1 comment-author">
+        <img src="http://placehold.it/120x120" title="{{author}}">
+      </div>
+      <div class="col-md-9">
+        <p class="comment-body">
+          {{{nl2br body}}}
+        </p>
+        <span class="comment-date">
+          - <cite>
+            {{author}},
+          </cite>  
+          {{#if isToday}}
+            {{submittedTextToday}}
+          {{else}}
+            {{submittedText}}
+          {{/if}}
+        </span>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
   </li>
 </template>

@@ -184,6 +184,7 @@ if (Tickets.find().count() === 0) {
     author: hocine.profile.name,
     submitted: now - 5 * 3600 * 1000,
     body: 'On a un espace suffisant. On voit en HO avec expert RJDM la cause de ce dysfonctionnement',
+    code: [ '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur adipiscing tellus egestas velit scelerisque, in rhoncus magna malesuada. In at felis quam." Section 1.10.32 du "De Finibus Bonorum et Malorum" de Ciceron (45 av. J.-C.)' ],
     attachmentsId: '1'
   });
   

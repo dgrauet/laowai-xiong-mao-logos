@@ -1,13 +1,15 @@
 <template name="ticketPage">
   {{> ticketItem}}
-  <ul class="comments">
-    {{#each comments}}
-      {{> comment}}
-    {{/each}}
-  </ul>
   {{#if currentUser}}
     {{> commentSubmit}}
   {{else}}
     <p>Please log in to leave a comment.</p>
   {{/if}}
+  <div class="row no-margin">
+    <ul class="comments list-unstyled">
+      {{#each comments}}
+        {{> comment}}
+      {{/each}}
+    </ul>
+  </div>
 </template>

@@ -29,6 +29,10 @@ Template.ticketItem.helpers({
     isDay = moment().format('DDMMYY');
     isSubmitted = moment(this.submitted).format('DDMMYY');
     return isDay === isSubmitted;
+  },
+  hasNoText: function(category) {
+    var dailyCategories = [ 'Sox', 'Check du matin', 'Check du soir' ];
+    return _.contains(dailyCategories, this.category);
   }
 });
 

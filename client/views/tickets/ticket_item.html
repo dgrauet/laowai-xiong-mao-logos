@@ -1,109 +1,165 @@
 <template name="ticketItem">
+  {{#if hasNoText}}
+    <div class="ticket">
+      <div class="ticket-content">
+        <!-- Number / Tags -->
+        <div class="row no-margin border-left-orange">
+          <div class="col-md-2 col-lg-2 text-center no-padding">
+            <p class="horo-id"><a href="{{pathFor 'ticketPage'}}">{{horoId}}</a></p>
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding">
+            <ol class="breadcrumb">
+              <li>
+                <span class="orange">
+                  <a href="#" id="participants" class="count" title="{{participantsList}}">
+                    {{participantsCount}}
+                  </a>
+                </span>
+                <span class="glyphicon glyphicon-user"></span>
+              </li>
+              <li>
+                <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
+                <span class="glyphicon glyphicon-comment"></span>
+              </li>
+              <li>
+                <span class="glyphicon glyphicon-share-alt"></span>
+              </li>
+              <li>
+                <span class="glyphicon glyphicon-eye-open"></span>
+              </li>
+              {{#if ownTicket}}
+              <li>
+                <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
+              </li>
+              {{/if}}
+              {{#if attachmentsId}}
+              <li>
+                <a href="" class="count">{{attachmentsCount}}</a>
+                <span class="glyphicon glyphicon-paperclip"></span>
+              </li>
+              {{/if}}
+              <li>
+                {{#if isToday}}
+                  {{submittedTextToday}} -> {{updatedTextToday}}
+                {{else}}
+                  {{submittedText}} -> {{updatedText}}
+                {{/if}}
+              </li>
+              <li>
+                <span class="bg-{{color}} category-no-text">{{category}}</span>
+              </li>
+            </ol>
+          </div><!-- div.col-10 -->
+        </div><!-- div.row.no-margin -->
+      </div><!-- div.ticket-content -->
+    </div><!-- div.ticket -->
+  {{else}}
     <div class="wrapper">
-        <div class="ribbon-wrapper">
-            <div class="ribbon ribbon-{{color}}">{{category}}</div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-content">
-                <!-- Number / Tags -->
-                <div class="row no-margin border-left-orange">
-                    <div class="col-md-2 col-lg-2 text-center no-padding">
-                        <p class="horo-id"><a href="{{pathFor 'ticketPage'}}">{{horoId}}</a></p>
-                        <!-- References -->
-                        <div class="tags">
-                            {{#if references}}
-                                <div>
-                                    {{#each references}}
-                                        <span class="label label-danger no-border-radius">{{this}}</span>
-                                    {{/each}}
-                                </div>
-                            {{/if}}
-                            <!-- Fields -->
-                            {{#if fields}}
-                                <div>
-                                    {{#each fields}}
-                                        <span class="label label-info no-border-radius">{{this}}</span>
-                                    {{/each}}
-                                </div>
-                            {{/if}}
-                            <div>
-                                <!-- Platforms -->
-                                {{#if platforms}}
-                                    {{#each platforms}}
-                                        <span class="label label-success no-border-radius">{{this}}</span>
-                                    {{/each}}
-                                {{/if}}
-                                <!-- Equipments -->
-                                {{#if equipments}}
-                                    {{#each equipments}}
-                                        <span class="label label-primary no-border-radius">{{this}}</span>
-                                    {{/each}}
-                                {{/if}}
-                            </div>
-                        </div>
+      <div class="ribbon-wrapper">
+        <div class="ribbon ribbon-{{color}}">{{category}}</div>
+      </div>
+      <div class="ticket">
+        <div class="ticket-content">
+          <!-- Number / Tags -->
+          <div class="row no-margin border-left-orange">
+            <div class="col-md-2 col-lg-2 text-center no-padding">
+              <p class="horo-id"><a href="{{pathFor 'ticketPage'}}">{{horoId}}</a></p>
+                <!-- References -->
+                <div class="tags">
+                  {{#if references}}
+                    <div>
+                      {{#each references}}
+                        <span class="label label-danger no-border-radius">{{this}}</span>
+                      {{/each}}
                     </div>
-                    <!-- Title / Detail -->
-                    <div class="col-md-10 no-padding">
-                        <div class="row no-margin">
-                            <div class="col-xs-10 no-padding">
-                                <blockquote class="no-margin">  
-                                    {{#if title}}
-                                        <p>{{title}}</p>
-                                    {{/if}}
-                                    {{#if detail}}
-                                        <small>
-                                            {{{nl2br detail}}}
-                                        </small>
-                                    {{/if}}
-                                </blockquote>
-                            </div>
-                        </div>
-                        <!-- Breadcrumb -->
-                        <div class="row no-margin">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                                <ol class="breadcrumb">
-                                    <li>
-                                        <span class="orange">
-                                            <a href="#" id="participants" class="count" title="{{participantsList}}">
-                                                {{participantsCount}}
-                                            </a>
-                                        </span>
-                                        <span class="glyphicon glyphicon-user"></span>
-                                    </li>
-                                    <li>
-                                        <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
-                                        <span class="glyphicon glyphicon-comment"></span>
-                                    </li>
-                                    <li>
-                                        <span class="glyphicon glyphicon-share-alt"></span>
-                                    </li>
-                                    <li>
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </li>
-                                    {{#if ownTicket}}
-                                    <li>
-                                        <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
-                                    </li>
-                                    {{/if}}
-                                    {{#if attachmentsId}}
-                                    <li>
-                                        <a href="" class="count">{{attachmentsCount}}</a>
-                                        <span class="glyphicon glyphicon-paperclip"></span>
-                                    </li>
-                                    {{/if}}
-                                    <li>
-                                        {{#if isToday}}
-                                            {{submittedTextToday}} -> {{updatedTextToday}}
-                                        {{else}}
-                                            {{submittedText}} -> {{updatedText}}
-                                        {{/if}}
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
+                  {{/if}}
+                  <!-- Fields -->
+                  {{#if fields}}
+                    <div>
+                      {{#each fields}}
+                        <span class="label label-info no-border-radius">{{this}}</span>
+                      {{/each}}
                     </div>
+                  {{/if}}
+                  <div>
+                    <!-- Platforms -->
+                    {{#if platforms}}
+                      {{#each platforms}}
+                        <span class="label label-success no-border-radius">{{this}}</span>
+                      {{/each}}
+                    {{/if}}
+                    <!-- Equipments -->
+                    {{#if equipments}}
+                      {{#each equipments}}
+                        <span class="label label-primary no-border-radius">{{this}}</span>
+                      {{/each}}
+                    {{/if}}
+                  </div>
                 </div>
             </div>
+            <!-- Title / Detail -->
+            <div class="col-md-10 no-padding">
+              <div class="row no-margin">
+                <div class="col-xs-10 no-padding">
+                  <blockquote class="no-margin">  
+                    {{#if title}}
+                      <p>{{title}}</p>
+                    {{/if}}
+                    {{#if detail}}
+                      <small>
+                        {{{nl2br detail}}}
+                      </small>
+                    {{/if}}
+                  </blockquote>
+                </div>
+              </div>
+              <!-- Breadcrumb -->
+              <div class="row no-margin">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                  <ol class="breadcrumb">
+                    <li>
+                      <span class="orange">
+                        <a href="#" id="participants" class="count" title="{{participantsList}}">
+                          {{participantsCount}}
+                        </a>
+                      </span>
+                      <span class="glyphicon glyphicon-user"></span>
+                    </li>
+                    <li>
+                      <a href="{{pathFor 'ticketPage'}}" class="count">{{commentsCount}}</a>
+                      <span class="glyphicon glyphicon-comment"></span>
+                    </li>
+                    <li>
+                      <span class="glyphicon glyphicon-share-alt"></span>
+                    </li>
+                    <li>
+                      <span class="glyphicon glyphicon-eye-open"></span>
+                    </li>
+                    {{#if ownTicket}}
+                      <li>
+                          <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
+                      </li>
+                    {{/if}}
+                    {{#if attachmentsId}}
+                      <li>
+                        <a href="" class="count">{{attachmentsCount}}</a>
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                      </li>
+                    {{/if}}
+                    <li>
+                      {{#if isToday}}
+                        {{submittedTextToday}} -> {{updatedTextToday}}
+                      {{else}}
+                        {{submittedText}} -> {{updatedText}}
+                      {{/if}}
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  {{/if}}
 </template>
