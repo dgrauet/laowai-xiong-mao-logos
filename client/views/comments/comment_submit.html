@@ -1,14 +1,21 @@
 <template name="commentSubmit">
-  <form name="comment" class="comment-form">
-    <div class="control-group">
-        <div class="controls">
-            <textarea name="body" class="form-control" placeholder="Comment on this ticket"></textarea>
+  <div class="row no-margin">
+    <div class="col-sm-12 no-padding">
+      <form name="comment" class="comment-form">
+        <div class="col-sm-11 no-padding control-group">
+          <div class="controls">
+            <textarea name="body" class="form-control" placeholder="Commentez ce ticket. Pour insérer du code ou des logs insérez les dans les balises <code></code>." rows="5"></textarea>
+          </div>
         </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn">Add Comment</button>
+        <div class="col-sm-1 no-padding control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-submit">Envoyer</button>
+          </div>
+          <div class="drop">
+            <span class="glyphicon glyphicon-paperclip"></span>
+          </div>
         </div>
+      </form>
     </div>
-  </form>
+  </div>
 </template>

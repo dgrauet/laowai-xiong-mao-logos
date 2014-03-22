@@ -16,7 +16,7 @@ Meteor.methods({
       
     comment = _.extend(_.pick(commentAttributes, 'ticketId', 'body'), {
       userId: user._id,
-      author: user.username,
+      author: user.profile.name,
       submitted: new Date().getTime()
     });
       

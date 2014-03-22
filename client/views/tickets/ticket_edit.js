@@ -100,6 +100,7 @@ Template.ticketEdit.events({
 
     var submitted = $(event.target).find('[name=submitted]').val();
     var updated = $(event.target).find('[name=updated]').val();
+
     var ticketProperties = {
       title: $(event.target).find('[name=title]').val(),
       detail: $(event.target).find('[name=detail]').val(),
@@ -109,8 +110,8 @@ Template.ticketEdit.events({
       platforms: platforms,
       equipments: equipments,
       references: references,
-      submitted : moment(submitted).unix()*1000,
-      updated: moment(updated).unix()*1000
+      submitted : moment(submitted, "DD/MM/YYYY HH:mm:ss").unix()*1000,
+      updated: moment(updated, "DD/MM/YYYY HH:mm:ss").unix()*1000
     }
 
     Tickets.update(currentTicketId, {$set: ticketProperties}, function(error) {
