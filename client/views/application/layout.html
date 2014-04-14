@@ -23,12 +23,12 @@
             {{> notifications}}
           </li>
         {{/if}}
-        {{loginButtons}}
+        {{> loginButtons}}
       </ul>
     </div>
   </nav>
   {{> errors}}
   <div id="main" class="row-fluid">
-    {{yield}}
+    {{> yield}}
   </div>
 </template>
