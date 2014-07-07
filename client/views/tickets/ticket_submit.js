@@ -4,10 +4,7 @@ Template.ticketSubmit.events({
 
     // Create array of references
     var refList = References.find().fetch();
-    var references = [];
-    for(i=0 ; i<refList.length ; i++){
-      references[i] = refList[i].number;
-    }
+    var references = _.pluck (refList, 'number');
 
     var fields = [];
     $('input[name=fields]:checked').each(function() {
@@ -18,7 +15,7 @@ Template.ticketSubmit.events({
     $('input[name=platforms]:checked').each(function() {
       platforms.push($(this).val());
     });
-      
+
     var equipments = [];
     $('input[name=equipments]:checked').each(function() {
       equipments.push($(this).val());
