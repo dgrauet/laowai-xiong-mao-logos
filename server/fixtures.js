@@ -79,12 +79,14 @@ if (Tickets.find().count() === 0) {
 
   // Fixtures Users
   var moussaId = Meteor.users.insert({
+    username: 'moussa',
     emails: [ 'mmariko.ext@orange.com' ],
     profile: {
       name: 'Moussa Mariko',
       groups: [ 'GAA' ]
     }
   });
+  Accounts.setPassword(moussaId, 'moussa');
   var moussa = Meteor.users.findOne(moussaId);
 
   var hocineId = Meteor.users.insert({
