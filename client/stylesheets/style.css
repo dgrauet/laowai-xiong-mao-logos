@@ -10,7 +10,7 @@ body { padding-top: 50px; }
 .navbar-default .navbar-brand {
   color: white;
 }
-  
+
 .navbar-default .navbar-nav > li > a {
   color: white;
 }
@@ -27,12 +27,12 @@ body { padding-top: 50px; }
 
 .navbar-right .dropdown { margin-right: 10px }
 
-#login-buttons-password { 
+#login-buttons-password {
   background-color: #2980b9;
   border: none;
 }
 
-#login-buttons-logout { 
+#login-buttons-logout {
   background-color: #e74c3c;
   border: none;
 }
@@ -178,7 +178,7 @@ a.count{
   z-index:90;
 }
 
-.ribbon {  
+.ribbon {
   font: bold 15px Sans-Serif;
   color: #fff;
   text-align: center;
@@ -277,7 +277,7 @@ a.count{
 }
 
 .comment-form {
- 
+
 }
 
 .comment-form textarea {
@@ -321,7 +321,7 @@ ul.comments > li > .row {
 }
 
 .comment-body {
-  padding-left: 20px;
+  padding-left: 30px;
   padding-top: 10px;
   padding-bottom: 20px;
   min-height: 110px;
@@ -346,4 +346,3 @@ code {
   padding: 5px;
   margin: 20px;
 }
-
