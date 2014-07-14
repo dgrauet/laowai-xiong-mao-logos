@@ -19,10 +19,10 @@ if (Tickets.find().count() === 0) {
   Categories.insert({ name: 'Astreinte', color: 'pink' });
 
   // Fixtures Fields
-  Fields.insert({ name: 'Grand Public', icon: 'globe', tag : 'GP' });
-  Fields.insert({ name: 'Entreprise', icon: 'briefcase', tag: 'Ent' });
-  Fields.insert({ name: 'Réquisition Légale', icon: 'hdd', tag: 'RJ' });
-  Fields.insert({ name: 'Facturation', icon: 'euro', tag: 'Factu' });
+  Fields.insert({ name: 'Grand Public', icon: 'globe' });
+  Fields.insert({ name: 'Entreprise', icon: 'briefcase' });
+  Fields.insert({ name: 'Réquisition Légale', icon: 'hdd' });
+  Fields.insert({ name: 'Facturation', icon: 'euro' });
 
   // Fixtures Platforms
   Platforms.insert({
@@ -219,10 +219,12 @@ if (Tickets.find().count() === 0) {
       fields: [ 'Grand Public' ],
       platforms: [ 'PMAS' ],
       equipments: [ 'SPGW', 'PGW' ],
+      attachmentsId: [ '1', '2' ],
       commentsCount: 0,
       category: 'Opération',
       color: 'green',
-      participantsCount: 1
+      participantsCount: 1,
+      attachmentsCount: 0
     });
   }
 }
