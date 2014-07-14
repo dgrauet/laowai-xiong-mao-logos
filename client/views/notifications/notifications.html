@@ -12,7 +12,7 @@
         {{> notification}}
       {{/each}}
     {{else}}
-      <li><span>No Notifications</span></li>
+      <li><span>Pas de Notifications</span></li>
     {{/if}}
   </ul>
 </template>
@@ -20,7 +20,7 @@
 <template name="notification">
   <li>
     <a href="{{notificationTicketPath}}">
-      <strong>{{commenterName}}</strong> commented on your ticket
+      <strong>{{commenterName}}</strong> a commenté votre ticket
     </a>
   </li>
 </template>
