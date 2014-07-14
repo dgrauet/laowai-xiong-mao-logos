@@ -294,20 +294,37 @@ a.count{
   margin-top: 6px;
 }
 
-.drop {
+.drop button{
+  position: relative;
+  display: block;
   margin: auto;
-  width: 72px;
-  height: 72px;
+  width: 74px;
+  height: 74px;
   background-color: #e67e22;
   color: white;
   margin-top: 6px;
   text-align: center;
+  border: solid 1px #e67e22;
+  font-size: 23px;
+  border-radius: 0px;
 }
 
-.drop span {
-  font-size: 23px;
-  position: relative;
-  top: 23px;
+.fileInput {
+    height: 0px;
+    width: 0px;
+    cursor: pointer;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    /*This makes the button huge. If you want a bigger button, increase the font size*/
+    font-size:0px;
+    /*Opacity settings for all browsers*/
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    overflow: hidden;
 }
 
 ul.comments > li > .row {
