@@ -219,12 +219,12 @@ if (Tickets.find().count() === 0) {
       fields: [ 'Grand Public' ],
       platforms: [ 'PMAS' ],
       equipments: [ 'SPGW', 'PGW' ],
-      attachmentsId: [ '1', '2' ],
+      attachments: [ 'images.jpg' ],
       commentsCount: 0,
       category: 'Opération',
       color: 'green',
       participantsCount: 1,
-      attachmentsCount: 0
+      attachmentsCount: 1
     });
   }
 }

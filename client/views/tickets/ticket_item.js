@@ -8,10 +8,21 @@ Template.ticketItem.helpers({
       for(i=0;i<participantsArr.length;i++){
         liste = liste + participantsArr[i];
         if(i!==(participantsArr.length - 1)){
-            liste = liste + ", ";   
+            liste = liste + ", ";
         }
       }
       return liste;
+  },
+  attachmentsList: function() {
+    var attachmentsArr = this.attachments;
+    var liste = "";
+    for(i=0;i<attachmentsArr.length;i++){
+      liste = liste + attachmentsArr[i];
+      if(i!==(attachmentsArr.length - 1)){
+          liste = liste + ", ";
+      }
+    }
+    return liste;
   },
   submittedText: function() {
     return moment(this.submitted).format('DD MMM HH:mm');
@@ -35,4 +46,3 @@ Template.ticketItem.helpers({
     return _.contains(dailyCategories, this.category);
   }
 });
-

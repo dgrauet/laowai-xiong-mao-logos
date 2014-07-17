@@ -101,7 +101,7 @@
             <div class="col-md-10 no-padding">
               <div class="row no-margin">
                 <div class="col-xs-10 no-padding">
-                  <blockquote class="no-margin">  
+                  <blockquote class="no-margin">
                     {{#if title}}
                       <p>{{title}}</p>
                     {{/if}}
@@ -140,9 +140,9 @@
                           <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
                       </li>
                     {{/if}}
-                    {{#if attachmentsId}}
+                    {{#if attachments}}
                       <li>
-                        <a href="" class="count">{{attachmentsCount}}</a>
+                        <a href="" class="count" title="{{attachmentsList}}">{{attachmentsCount}}</a>
                         <span class="glyphicon glyphicon-paperclip"></span>
                       </li>
                     {{/if}}
