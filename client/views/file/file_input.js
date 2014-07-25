@@ -5,31 +5,19 @@ Template.fileInput.events({
   'change #fileInput': function(event, template){
     event.preventDefault();
     _.each(event.currentTarget.files, function(file) {
-      Meteor.saveFile(file, file.name);
+      console.log(file);
+      var fileObj = new FS.File(file);
+      fileObj.metadata = {
+        owner: Meteor.userId(),
+        ticketId: template.data._id
+      };
+      Images.insert(fileObj, function (err, fileObj) {
+        if (err){
+          console.log(err.reason);
+        }
+      //If !err, we have inserted new doc with ID fileObj._id, and
+      //kicked off the data upload using HTTP
+      });
     });
   }
 });
-
-Meteor.saveFile = function(blob, name, path, type, callback) {
-  var fileReader = new FileReader(),
-    method, encoding = 'binary', type = type || 'binary';
-  switch (type) {
-    case 'text':
-    // TODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-    method = 'readAsText';
-    encoding = 'utf8';
-    break;
-    case 'binary':
-    method = 'readAsBinaryString';
-    encoding = 'binary';
-    break;
-    default:
-    method = 'readAsBinaryString';
-    encoding = 'binary';
-    break;
-  }
-  fileReader.onload = function(load) {
-    Meteor.call('saveFile', load.target.result, name, path, encoding, callback);
-  }
-  fileReader[method](new Blob([blob]));
-}
