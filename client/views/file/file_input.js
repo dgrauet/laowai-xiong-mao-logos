@@ -14,6 +14,11 @@ Template.fileInput.events({
       Images.insert(fileObj, function (err, fileObj) {
         if (err){
           console.log(err.reason);
+        }else{
+          Meteor.call('increment', template.data._id, fileObj.name(), function(err, id){
+            if(err)
+              throwError(error.reason);
+          });
         }
       //If !err, we have inserted new doc with ID fileObj._id, and
       //kicked off the data upload using HTTP

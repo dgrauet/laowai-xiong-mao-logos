@@ -24,8 +24,8 @@ Meteor.methods({
     var ticket = _.extend(_.pick(ticketAttributes, 'references', 'title', 'detail', 'horoId', 'category', 'color', 'fields', 'platforms', 'equipments'), {
       title: ticketAttributes.title,
       detail: ticketAttributes.detail,
-      userId: user._id, 
-      author: user.profile.name, 
+      userId: user._id,
+      author: user.profile.name,
       horoId: ticketAttributes.horoId,
       submitted: new Date().getTime(),
       updated: new Date().getTime(),
@@ -43,5 +43,18 @@ Meteor.methods({
 
     var ticketId = Tickets.insert(ticket);
     return ticketId;
+  },
+  increment: function(id, key, name){
+    // ensure the user is logged in
+    var user = Meteor.user();
+    if (!user)
+      throw new Meteor.Error(401, 'Veuillez vous connecter');
+    Tickets.update(
+      {id: id},
+      {
+        $inc: { key: 1 },
+        $addToSet: { attachments: name }
+      }
+    );
   }
 });
