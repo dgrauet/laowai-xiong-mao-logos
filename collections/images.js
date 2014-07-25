@@ -1,10 +1,10 @@
 Images = new FS.Collection("images", {
   stores: [
     new FS.Store.FileSystem("images", {
-      path: "public/uploads"
+      path: "/Users/laowai/Repository/laowai-xiong-mao-logos/public/uploads"
     }),
     new FS.Store.FileSystem("thumbs", {
-      path: "public/thumbs",
+      path: "/Users/laowai/Repository/laowai-xiong-mao-logos/public/thumbs",
       beforeWrite: function (fileObj) {
 
       },
@@ -25,8 +25,4 @@ Images.allow({
   insert: function(userId, doc){ return userId && doc; },
   update: ownsDocument,
   remove: ownsDocument
-});
-
-Images.deny({
-  insert: function(userId, doc) { return ! userId || ! doc; }
 });

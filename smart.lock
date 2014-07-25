@@ -8,9 +8,7 @@
       "accounts-ui-bootstrap-3": {},
       "moment": {},
       "npm": {},
-      "collectionFS": {},
-      "cfs-file": {},
-      "cfs-filesystem": {}
+      "collectionFS": {}
     },
     "packages": {
       "iron-router": {
@@ -20,8 +18,8 @@
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v0.2.2",
-        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+        "tag": "v2.0.3",
+        "commit": "23c1145472a710d5c93fa4beaca4e576caeb2f24"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
@@ -48,16 +46,6 @@
         "tag": "v0.4.8",
         "commit": "fea890b1e27799ccc9f71046748fb23a84330a16"
       },
-      "cfs-file": {
-        "git": "https://github.com/CollectionFS/Meteor-cfs-file.git",
-        "tag": "v0.1.8",
-        "commit": "0b576c546cc38efad02877d160c9852914574b02"
-      },
-      "cfs-filesystem": {
-        "git": "https://github.com/CollectionFS/Meteor-cfs-filesystem.git",
-        "tag": "v0.0.27",
-        "commit": "703be2e5f890c84366df39a90a209b7b2c95c967"
-      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
@@ -67,6 +55,11 @@
         "git": "https://github.com/CollectionFS/Meteor-cfs-base-package.git",
         "tag": "v0.0.23",
         "commit": "82bc49b4b8f66572b5551098e674e3a3b6c42ea3"
+      },
+      "cfs-file": {
+        "git": "https://github.com/CollectionFS/Meteor-cfs-file.git",
+        "tag": "v0.1.8",
+        "commit": "0b576c546cc38efad02877d160c9852914574b02"
       },
       "cfs-collection": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-collection.git",
@@ -162,6 +155,11 @@
         "git": "https://github.com/CollectionFS/Meteor-cfs-ejson-file.git",
         "tag": "v0.0.7",
         "commit": "aa80b46e73f3c9dcfec75106d1078b56be475bd7"
+      },
+      "cfs-filesystem": {
+        "git": "https://github.com/CollectionFS/Meteor-cfs-filesystem.git",
+        "tag": "v0.0.27",
+        "commit": "703be2e5f890c84366df39a90a209b7b2c95c967"
       },
       "reactive-property": {
         "git": "https://github.com/CollectionFS/Meteor-reactive-property.git",
