@@ -11,7 +11,7 @@ Template.fileInput.events({
         owner: Meteor.userId(),
         ticketId: template.data._id
       };
-      Images.insert(file, function (err, fileObj) {
+      Images.insert(fileObj, function (err, fileObj) {
         if (err){
           console.log(err.reason);
         }
