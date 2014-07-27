@@ -1,12 +1,12 @@
 Images = new FS.Collection("images", {
   stores: [
     new FS.Store.FileSystem("images", {
-      path: "/Users/laowai/Repository/laowai-xiong-mao-logos/public/uploads"
+      path: "~/uploads"
     }),
     new FS.Store.FileSystem("thumbs", {
-      path: "/Users/laowai/Repository/laowai-xiong-mao-logos/public/thumbs",
+      path: "~/thumbs",
       beforeWrite: function (fileObj) {
-        
+        console.Log(fileObj);
       },
       transformWrite: function(fileObj, readStream, writeStream) {
         // Transform the image into a 10x10px thumbnail

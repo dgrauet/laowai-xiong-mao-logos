@@ -44,16 +44,16 @@ Meteor.methods({
     var ticketId = Tickets.insert(ticket);
     return ticketId;
   },
-  increment: function(id, key, name){
+  increment: function(id, key){
     // ensure the user is logged in
     var user = Meteor.user();
     if (!user)
       throw new Meteor.Error(401, 'Veuillez vous connecter');
+
     Tickets.update(
       {id: id},
       {
         $inc: { key: 1 },
-        $addToSet: { attachments: name }
       }
     );
   }

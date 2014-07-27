@@ -15,7 +15,7 @@ Template.fileInput.events({
         if (err){
           console.log(err.reason);
         }else{
-          Meteor.call('increment', template.data._id, attachmentsCount, fileObj.name(), function(err, id){
+          Meteor.call('increment', template.data._id, attachmentsCount, function(err, id){
             if(err)
               throwError(error.reason);
           });
