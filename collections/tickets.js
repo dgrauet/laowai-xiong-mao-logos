@@ -1,14 +1,14 @@
 Tickets = new Meteor.Collection('tickets');
 
 Tickets.allow({
-  update: ownsDocument,
+  update: validUserAndDoc,
   remove: ownsDocument
 });
 
 Tickets.deny({
   update: function(userId, ticket, fieldNames) {
     // may only edit the following fields:
-    return (_.without(fieldNames, 'title', 'detail', 'category', 'color', 'fields', 'platforms', 'equipments', 'references', 'submitted', 'updated').length > 0);
+    return (_.without(fieldNames, 'title', 'detail', 'category', 'color', 'fields', 'platforms', 'equipments', 'references', 'submitted', 'updated', 'attachments', 'attachmentsCount').length > 0);
   }
 });
 
@@ -43,18 +43,5 @@ Meteor.methods({
 
     var ticketId = Tickets.insert(ticket);
     return ticketId;
-  },
-  increment: function(id, key){
-    // ensure the user is logged in
-    var user = Meteor.user();
-    if (!user)
-      throw new Meteor.Error(401, 'Veuillez vous connecter');
-
-    Tickets.update(
-      {id: id},
-      {
-        $inc: { key: 1 },
-      }
-    );
   }
 });

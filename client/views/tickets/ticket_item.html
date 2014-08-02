@@ -1,4 +1,5 @@
 <template name="ticketItem">
+  {{> fileModal}}
   {{#if hasNoText}}
     <div class="ticket">
       <div class="ticket-content">
@@ -144,6 +145,7 @@
                       <li>
                         <a href="" class="count" title="{{attachmentsList}}">{{attachmentsCount}}</a>
                         <span class="glyphicon glyphicon-paperclip"></span>
+                        <button class="btn btn-link" id="btn-add-attachment" data-toggle="modal" data-target="#fileModal">+</button>
                       </li>
                     {{/if}}
                     <li>

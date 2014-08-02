@@ -123,7 +123,6 @@ Template.ticketEdit.events({
       }
     });
   },
-
   'click .delete': function(event) {
     event.preventDefault();
     if (confirm("Delete this ticket ?")) {

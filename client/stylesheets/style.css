@@ -298,6 +298,15 @@ a.count{
   margin-top: 6px;
 }
 
+#btn-add-attachment {
+  position: relative;
+  padding: 0px 2px 0px 2px;
+  bottom: 2.5px;
+  font-weight: bold;
+  color: #e67e22;
+  text-decoration: none;
+}
+
 .drop button{
   position: relative;
   display: block;
