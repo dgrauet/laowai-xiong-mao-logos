@@ -33,12 +33,10 @@
                 <a href="{{pathFor 'ticketEdit'}}"><span class="glyphicon glyphicon-cog"></span></a>
               </li>
               {{/if}}
-              {{#if attachmentsId}}
               <li>
                 <a href="" class="count">{{attachmentsCount}}</a>
                 <span class="glyphicon glyphicon-paperclip"></span>
               </li>
-              {{/if}}
               <li>
                 {{#if isToday}}
                   {{submittedTextToday}} -> {{updatedTextToday}}

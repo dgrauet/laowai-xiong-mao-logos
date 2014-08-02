@@ -24,3 +24,4 @@ cfs-worker
 cfs-upload-http
 cfs-ejson-file
 insecure
+ui-dropped-event

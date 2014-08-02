@@ -8,7 +8,8 @@
       "accounts-ui-bootstrap-3": {},
       "moment": {},
       "npm": {},
-      "collectionFS": {}
+      "collectionFS": {},
+      "ui-dropped-event": {}
     },
     "packages": {
       "iron-router": {
@@ -45,6 +46,11 @@
         "git": "https://github.com/CollectionFS/Meteor-CollectionFS.git",
         "tag": "v0.4.8",
         "commit": "fea890b1e27799ccc9f71046748fb23a84330a16"
+      },
+      "ui-dropped-event": {
+        "git": "https://github.com/CollectionFS/Meteor-ui-dropped-event.git",
+        "tag": "v0.0.7",
+        "commit": "cea1b4dff66044398586dbc43861e6c491672f53"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
