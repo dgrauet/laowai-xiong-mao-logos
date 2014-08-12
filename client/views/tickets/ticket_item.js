@@ -5,9 +5,9 @@ Template.ticketItem.helpers({
   participantsList: function() {
       var participantsArr = this.participants;
       var liste = "";
-      for(i=0;i<participantsArr.length;i++){
+      for( i = 0; i < participantsArr.length; i++ ) {
         liste = liste + participantsArr[i];
-        if(i!==(participantsArr.length - 1)){
+        if( i !== ( participantsArr.length - 1 )) {
             liste = liste + ", ";
         }
       }
@@ -17,8 +17,8 @@ Template.ticketItem.helpers({
     var attachmentsArr = this.attachments;
     var liste = "";
     for(i=0;i<attachmentsArr.length;i++){
-      liste = liste + attachmentsArr[i];
-      if(i!==(attachmentsArr.length - 1)){
+      liste = liste + attachmentsArr[i].fileName;
+      if( i !== (attachmentsArr.length - 1 )) {
           liste = liste + ", ";
       }
     }

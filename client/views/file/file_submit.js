@@ -11,24 +11,6 @@ Template.fileSubmit.events({
         ticketId: template.data._id
       };
       console.log(fileObj);
-      Images.insert(fileObj, function (err, fileObj) {
-        if (err){
-          console.log(err.reason);
-        } else {
-          Tickets.update( fileObj.metadata.ticketId, {
-            $inc: { attachmentsCount: 1 },
-            $addToSet: { attachments: fileObj.original.name }
-          }, function(err, count){
-            if (err) {
-              console.log( err.reason );
-            } else {
-              console.log(count + " records made");
-            }
-          });
-        }
-      //If !err, we have inserted new doc with ID fileObj._id, and
-      //kicked off the data upload using HTTP
-      });
     });
   },
   'dropped #dropzone': function(event, template) {
@@ -46,7 +28,7 @@ Template.fileSubmit.events({
         } else {
           Tickets.update( fileObj.metadata.ticketId, {
             $inc: { attachmentsCount: 1 },
-            $addToSet: { attachments: fileObj.original.name }
+            $addToSet: { attachments: { attachmentId: fileObj._id, fileName: fileObj.original.name } }
           }, function(err, count){
             if (err) {
               console.log(err.reason);
@@ -58,6 +40,27 @@ Template.fileSubmit.events({
       //If !err, we have inserted new doc with ID fileObj._id, and
       //kicked off the data upload using HTTP
       });
+    });
+  },
+  'click #saveFiles': function (event,template) {
+    event.preventDefault();
+    Images.insert(fileObj, function (err, fileObj) {
+      if (err){
+        console.log(err.reason);
+      } else {
+        Tickets.update( fileObj.metadata.ticketId, {
+          $inc: { attachmentsCount: 1 },
+          $addToSet: { attachments: { attachmentId: fileObj._id, fileName: fileObj.original.name } }
+        }, function(err, count){
+          if (err) {
+            console.log( err.reason );
+          } else {
+            console.log(count + " records made");
+          }
+        });
+      }
+    //If !err, we have inserted new doc with ID fileObj._id, and
+    //kicked off the data upload using HTTP
     });
   }
 });

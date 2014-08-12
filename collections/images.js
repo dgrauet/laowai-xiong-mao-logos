@@ -28,5 +28,5 @@ Images.allow({
   insert: validUserAndDoc,
   update: ownsDocument,
   remove: ownsDocument,
-  download: function(){ return true; }
+  download: function(){ return true; },
 });
