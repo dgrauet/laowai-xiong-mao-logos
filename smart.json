@@ -6,7 +6,7 @@
     "accounts-ui-bootstrap-3": {},
     "moment": {},
     "npm": {},
-    "collectionFS": {},
+    "collectionfs": {},
     "ui-dropped-event": {}
   }
 }
