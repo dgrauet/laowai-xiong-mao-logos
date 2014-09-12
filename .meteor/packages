@@ -12,16 +12,5 @@ spin
 jquery
 moment
 npm
-collectionFS
-cfs-filesystem
-cfs-graphicsmagick
-cfs-file
-cfs-base-package
-cfs-collection
-cfs-collection-filters
-cfs-access-point
-cfs-worker
-cfs-upload-http
-cfs-ejson-file
 insecure
 ui-dropped-event
