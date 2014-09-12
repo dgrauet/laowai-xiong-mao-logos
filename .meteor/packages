@@ -4,13 +4,9 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-mrt:bootstrap-3@3.2.0-1
 accounts-password
 cmather:iron-router@0.8.2
-accounts-ui-bootstrap-3
 sacha:spin@2.0.4
 jquery
-mrt:moment@2.8.1
 arunoda:npm@0.2.6
-insecure
 raix:ui-dropped-event@0.0.7
