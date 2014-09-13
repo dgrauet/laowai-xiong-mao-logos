@@ -3,10 +3,11 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
-accounts-password
-cmather:iron-router@0.8.2
-sacha:spin@2.0.4
+meteor-platform
+iron:router
+cfs:collection
+cfs:filesystem
+cfs:standard-packages
+underscore
 jquery
-arunoda:npm@0.2.6
-raix:ui-dropped-event@0.0.7
+
