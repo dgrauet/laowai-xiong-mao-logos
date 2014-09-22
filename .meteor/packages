@@ -10,4 +10,9 @@ cfs:filesystem
 cfs:standard-packages
 underscore
 jquery
+accounts-ui
+mizzao:bootstrap-3
+ian:accounts-ui-bootstrap-3
+accounts-password
+cfs:micro-queue
 
