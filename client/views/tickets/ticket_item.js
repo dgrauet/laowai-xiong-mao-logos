@@ -13,17 +13,6 @@ Template.ticketItem.helpers({
       }
       return liste;
   },
-  attachmentsList: function() {
-    var attachmentsArr = this.attachments;
-    var liste = "";
-    for(i=0;i<attachmentsArr.length;i++){
-      liste = liste + attachmentsArr[i].fileName;
-      if( i !== (attachmentsArr.length - 1 )) {
-          liste = liste + ", ";
-      }
-    }
-    return liste;
-  },
   submittedText: function() {
     return moment(this.submitted).format('DD MMM HH:mm');
   },

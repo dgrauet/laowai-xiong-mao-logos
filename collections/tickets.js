@@ -8,7 +8,7 @@ Tickets.allow({
 Tickets.deny({
   update: function(userId, ticket, fieldNames) {
     // may only edit the following fields:
-    return (_.without(fieldNames, 'title', 'detail', 'category', 'color', 'fields', 'platforms', 'equipments', 'references', 'submitted', 'updated', 'attachments', 'attachmentsCount').length > 0);
+    return (_.without(fieldNames, 'title', 'detail', 'category', 'color', 'fields', 'platforms', 'equipments', 'references', 'submitted', 'updated').length > 0);
   }
 });
 
@@ -38,7 +38,6 @@ Meteor.methods({
       equipments: ticketAttributes.equipments,
       commentsCount: 0,
       participantsCount: 1,
-      attachmentsCount: 0
     });
 
     var ticketId = Tickets.insert(ticket);
