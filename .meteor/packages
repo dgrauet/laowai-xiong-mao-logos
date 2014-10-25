@@ -4,13 +4,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-ian:accounts-ui-bootstrap-3
 iron:router
 underscore
 jquery
 accounts-ui
 accounts-password
-ian:bootstrap-3
 sacha:spin
 mrt:moment
-
+mizzao:bootstrap-3
